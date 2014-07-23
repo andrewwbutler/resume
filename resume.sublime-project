@@ -1,0 +1,30 @@
+{
+  "folders":
+  [
+    {
+      "path": "/home/emichael/resume",
+      "folder_exclude_patterns": [
+        "env",
+        "build"
+      ],
+      "file_exclude_patterns": [
+        "*.sublime-workspace",
+        "*.aux",
+        "*.log",
+        "*.pdf",
+        "*.fdb_latexmk",
+        "*.synctex.gz"
+      ]
+    }
+  ],
+  "settings":
+  {
+    "pylinter":
+    {
+      "python_bin": "/home/emichael/resume/env/bin/python",
+      "python_path": [
+        "/home/emichael/resume/env/lib/python2.7/site-packages"
+      ]
+    }
+  }
+}

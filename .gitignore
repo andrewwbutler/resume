@@ -1,5 +1,12 @@
-__pycache__
+*.pdf
+*.synctex.gz
 *.aux
+*.fdb_latexmk
 *.log
 *.out
-*.pdf
+
+*.sublime-workspace
+
+env/
+
+build/

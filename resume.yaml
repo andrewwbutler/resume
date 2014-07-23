@@ -1,0 +1,93 @@
+---
+name: Ellis Michael
+address: Austin, TX
+website: http://ellismichael.com
+image: QRcode.png
+
+&obj Objective:
+  To create and innovate in an internship during the summer of 2014, to take on a new and interesting challenge
+
+&edu Education:
+  - date: May 2015
+    school: The University of Texas at Austin
+    major: Computer Science Honors \textbf{Turing Scholars}, Plan II Honors
+    gpa: "4.0"
+
+&exp Experience:
+  - date: Summer 2013
+    role: Software Engineering Intern
+    employer: Google - Mountain View, CA
+    notes:
+      - Developed a full-text search module for Google's Course Builder, a Google App Engine application
+      - Worked across the application's entire stack in CSS, HTML (with Jinja templating), Javascript, and Python
+
+  - date: Summer 2012
+    role: Software Engineering Intern
+    employer: IBM - Austin, TX
+    notes:
+      - Developed a tool to expedite the integration and build process for the Business Process Management (BPM) group using DB2, TeamCity, RTC, and BPM
+      - Created RESTful APIs in Java
+
+&scw Selected Coursework:
+  legend: (H) = Honors\ \ (G) = Graduate
+  items: &scw-courses
+    - Distributed Computing (G)
+    - Operating Systems (H)
+    - Computer Organization and Arch. (H)
+    - Algorithms (G)
+    - Data Structures (H)
+    - Analysis of Programs (H)
+    - Autonomous Vehicles
+    - Number Theory
+    - Linear Algebra (H)
+
+&sks Skills:
+  - "Languages: Java, Python, C, C++, HTML, CSS, JavaScript, PHP, XML/XSD, SQL, x86 Assembly, TeX"
+  - Agile, pair programming, extreme programming (XP) methodologies
+
+&prg Programming:
+  - Built significant pieces of the JOS operating system including a memory manager, scheduler, file system, and network driver
+  - Implemented parts of a pipelined processor
+  - Optimized C and assembly language code using code motion, blocking, loop unrolling, branch prediction
+  - Partnered in the development of a SLAM implementation in ROS for the UT-Austin robotic vehicle
+  - Implemented Tetris AI optimized with a genetic algorithm
+  - Created a web crawler and search engine with relevancy prediction
+
+&oas Other Activities:
+  - Turing Scholars Students' Association
+  - Dean's Scholars Council Member
+
+&shs Selected Honors:
+  - National Merit Scholar
+  - Ralph R. Nelson Endowed Presidential Scholarship
+  - Renee Wolfe Zelman Endowed Scholarship
+  - Joe P. Liberty Endowed Scholarship
+
+
+sections:
+  - title: *obj
+    type: normal
+
+  - title: *edu
+    type: education
+
+  - title: *exp
+    type: experience
+
+  - title: *scw
+    type: tablist
+    rowsize: 3
+
+  - title: *sks
+    type: items
+
+  - title: *prg
+    type: items
+
+  - title: *oas
+    type: items
+
+  - title: *shs
+    type: tablist
+    rowsize: 2
+...

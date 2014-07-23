@@ -1,135 +1,124 @@
 #!/usr/bin/env python3
-#
+
 # Generates LaTeX, markdown, and plaintext copies of my CV.
 #
-# Brandon Amos <http://bamos.io>
-# 2013.12.28
+# Brandon Amos <http://bamos.io> and Ellis Michael <http://ellismichael.com>
+# 2014.7.23
 
 import re
 import yaml
 
-from bibtexparser.customization import *
-from bibtexparser.bparser import BibTexParser
-from datetime import date
 from jinja2 import Environment, FileSystemLoader
 
-env = Environment(loader=FileSystemLoader("tmpl"))
 
-f = open("cv.yaml", 'r')
-yaml_contents = yaml.load(f)
-f.close()
+YAML_FILE = 'resume.yaml'
+
+LATEX_OUTPUT_FILE = 'build/resume.tex'
+LATEX_TEMPLATES_DIR = './templates/latex/'
+LATEX_TEMPLATE = 'resume.tex'
+LATEX_SECTION_TEMPLATES = {
+    'normal': 'section.tex',
+    'items': 'itemsection.tex',
+    'education': 'educationsection.tex',
+    'experience': 'experiencesection.tex',
+    'tablist': 'tablistsection.tex',
+}
+
+latex_template_env = Environment(
+    loader=FileSystemLoader(searchpath=LATEX_TEMPLATES_DIR),
+    block_start_string='~{',
+    block_end_string='}~',
+    variable_start_string='~{{',
+    variable_end_string='}}~',
+    comment_start_string='~{#',
+    comment_end_string='#}~',
+    trim_blocks=True,
+    lstrip_blocks=True
+)
+
+with open(YAML_FILE) as f:
+    yaml_contents = yaml.load(f)
+
 
 def latexToMd(s):
-  if isinstance(s,str):
-    s = s.replace(r'\\', '\n\n')
-    s = s.replace(r'\it', '')
-    s = s.replace('--', '-')
-    s = s.replace('``', '"')
-    s = s.replace("''", '"')
-    s = s.replace(r"\LaTeX", "LaTeX")
-    s = s.replace(r"\#", "#")
-    s = s.replace(r"\&", "&")
-    s = re.sub(r'\\[hv]space\*?\{[^}]*\}', '', s)
-    s = s.replace(r"*", "\*")
-    s = re.sub(r'\{ *\\bf *([^\}]*)\}', r'**\1**', s)
-    s = re.sub('\{([^\}]*)\}', r'\1', s)
-  elif isinstance(s,dict):
-    for k,v in s.items():
-      s[k] = latexToMd(v)
-  elif isinstance(s,list):
-    for idx, item in enumerate(s):
-      s[idx] = latexToMd(item)
-  return s
+    if isinstance(s, str):
+        s = s.replace(r'\\', '\n\n')
+        s = s.replace(r'\it', '')
+        s = s.replace('--', '-')
+        s = s.replace('``', '"')
+        s = s.replace("''", '"')
+        s = s.replace(r"\LaTeX", "LaTeX")
+        s = s.replace(r"\#", "#")
+        s = s.replace(r"\&", "&")
+        s = re.sub(r'\\[hv]space\*?\{[^}]*\}', '', s)
+        s = s.replace(r"*", r"\*")
+        s = re.sub(r'\{ *\\bf *([^\}]*)\}', r'**\1**', s)
+        s = re.sub(r'\{([^\}]*)\}', r'\1', s)
+    elif isinstance(s, dict):
+        for k, v in s.items():
+            s[k] = latexToMd(v)
+    elif isinstance(s, list):
+        for idx, item in enumerate(s):
+            s[idx] = latexToMd(item)
+            return s
 
-def get_bibtex_md(p, pub_types):
-  def get_author_str(authors):
-    a_len = len(authors)
-    if a_len == 1:
-      author_str = authors[0]
-    elif a_len == 2:
-      author_str = authors[0] + " and " + authors[1]
+
+def make_groups(l, size):
+    groups = []
+    l_temp = list(l)
+    while len(l_temp):
+        g = []
+        for _ in range(size):
+            try:
+                g.append(l_temp.pop(0))
+            except IndexError:
+                break
+        groups.append(tuple(g))
+    return groups
+
+
+def render_tex_section(title, section_type, data, row_size=2):
+    template = latex_template_env.get_template(
+        LATEX_SECTION_TEMPLATES[section_type])
+    context = {}
+    context['title'] = title
+
+    if 'legend' in data:
+        context['legend'] = data['legend']
+    if 'items' in data:
+        context['items'] = data['items']
     else:
-      author_str = ""
-      for i in range(a_len):
-        author_str += authors[i]
-        if i < a_len-1: author_str += ", "
-        if i == a_len-2: author_str += "and "
-    return author_str
+        context['items'] = data
 
-  for item in p:
-    new_auth_list = []
-    for auth in item['author']:
-      new_auth = auth.split(", ")
-      new_auth = new_auth[1][0] + ". " + new_auth[0]
-      new_auth_list.append(new_auth)
-    item['author'] = new_auth_list
+    if section_type == 'tablist':
+        context['groups'] = make_groups(context['items'], row_size)
+    elif section_type == 'normal':
+        context['data'] = context['items']
 
-  contents = []
-  gidx = 1
-  for t in pub_types:
-    type_content = {}
-    type_content['title'] = t[1]
-    filtered = filter(lambda x: x['type'] == t[0], p)
-    details = ""
-    for item in filtered:
-      author_str = get_author_str(item['author'])
-      if item['title'][-1] not in ("?", ".", "!"): punc = ","
-      else: punc = ""
-      titlePunctuation = ","
-      if t[0] == "inproceedings":
-        details += "[" + str(gidx) + "] " + \
-          author_str + ", \"" + item['title'] + punc + "\" in <em>" + \
-          item['booktitle'] + "</em>, " + item['year'] + "<br><br>\n"
-      elif t[0] == "article":
-        details += "[" + str(gidx) + "] " + \
-          author_str + ", \"" + item['title'] + punc + "\" <em>" + \
-          item['journal'] + "</em>, " + item['year'] + "<br><br>\n"
-      else:
-        print(t)
-        raise Exception()
-      gidx += 1
-    type_content['details'] = details
-    contents.append(type_content)
+    return template.render(context)
 
-  return contents
 
-def generate(ext):
-  body = ""
-  for section in yaml_contents['order']:
-    if ext == "md":
-      contents = latexToMd(yaml_contents[section[0]])
-      name = latexToMd(section[1].title())
-    elif ext == "tex":
-      contents = yaml_contents[section[0]]
-      name = section[1].title()
+def main():
+    body = ''
+    for section in yaml_contents['sections']:
+        title = section['title']
+        section_type = section['type']
+        data = yaml_contents[title]
 
-    if name == 'Publications' and ext == "md":
-      with open(contents, 'r') as f:
-        p = BibTexParser(f.read(), author).get_entry_list()
-        pub_types = [
-          ('inproceedings', 'Conference Proceedings'),
-          ('article', 'Articles')
-        ]
-        contents = get_bibtex_md(p, pub_types)
+        if 'rowsize' in section:
+            rendered_section = render_tex_section(
+                title, section_type, data, section['rowsize'])
+        else:
+            rendered_section = render_tex_section(title, section_type, data)
+        body += rendered_section + '\n\n'
 
-    body += env.get_template("cv-section.tmpl." + ext).render(
-      name = name,
-      contents = contents
-    )
+    template = latex_template_env.get_template(LATEX_TEMPLATE)
+    yaml_contents['body'] = body
+    rendered_resume = template.render(yaml_contents)
 
-  f_cv = open("gen/cv." + ext, 'w')
-  f_cv.write(env.get_template("cv.tmpl." + ext).render(
-    name = yaml_contents['name'],
-    pdf = yaml_contents['pdf'],
-    src = yaml_contents['src'],
-    phone = yaml_contents['phone'],
-    email = yaml_contents['email'],
-    email_recaptcha = yaml_contents['email_recaptcha'],
-    url = yaml_contents['url'],
-    body = body,
-    today = date.today().strftime("%B %d, %Y")
-  ))
-  f_cv.close()
+    with open(LATEX_OUTPUT_FILE, 'w') as o:
+        o.write(rendered_resume)
 
-generate("tex")
-generate("md")
+
+if __name__ == "__main__":
+    main()
