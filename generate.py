@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
-# Generates LaTeX, markdown, and plaintext copies of my CV.
-#
-# Brandon Amos <http://bamos.io> and Ellis Michael <http://ellismichael.com>
-# 2014.7.23
+"""Generates LaTeX, markdown, and plaintext copies of my resume."""
+
+__author__ = [
+    'Brandon Amos <http://bamos.io>',
+    'Ellis Michael <http://ellismichael.com>',
+]
 
 import re
 import yaml
@@ -13,9 +15,9 @@ from jinja2 import Environment, FileSystemLoader
 
 
 REPLACEMENTS = [
-    (r'\\ ', '&nbsp;'),
-    (r'\\textbf{(.*)}', r'**\1**'),
-    (r'\\TeX', r'TeX')
+    (r'\\ ', '&nbsp;'),                # LaTeX spaces to &nbsp;
+    (r'\\textbf{(.*)}', r'**\1**'),    # Bold text
+    (r'\\TeX', r'TeX')                 # \TeX to boring old TeX
 ]
 
 YAML_FILE = 'resume.yaml'

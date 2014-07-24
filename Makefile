@@ -1,4 +1,4 @@
-# Makefile to build PDF, Markdown, and plaintext CV from YAML.
+# Makefile to build PDF and Markdown resume from YAML.
 #
 # Brandon Amos <http://bamos.io> and Ellis Michael <http://ellismichael.com>
 
