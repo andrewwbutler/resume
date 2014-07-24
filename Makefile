@@ -6,33 +6,39 @@ BLOG_DIR=$(HOME)/ellismichael.com
 TEMPLATE_DIR=templates
 BUILD_DIR=build
 
+TEX=$(BUILD_DIR)/resume.tex
+PDF=$(BUILD_DIR)/resume.pdf
+MD=$(BUILD_DIR)/resume.md
+
 .PHONY: all viewpdf stage jekyll push clean
 
-all: viewpdf
+all: $(PDF) $(MD)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-$(BUILD_DIR)/resume.tex: $(BUILD_DIR) $(TEMPLATE_DIR)/latex/* generate.py
+$(TEX) $(MD): $(BUILD_DIR) $(TEMPLATE_DIR)/latex/* $(TEMPLATE_DIR)/markdown/* \
+							resume.yaml generate.py
 	python generate.py
 
-$(BUILD_DIR)/resume.pdf: $(BUILD_DIR) $(BUILD_DIR)/resume.tex
+$(PDF): $(BUILD_DIR) $(TEX)
 	latexmk -pdf -cd- -quiet -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume
 	latexmk -c -cd $(BUILD_DIR)/resume
 
-viewpdf: $(BUILD_DIR)/resume.pdf
-	gnome-open $(BUILD_DIR)/resume.pdf
+viewpdf: $(PDF)
+	gnome-open $(PDF)
 
-stage: $(BUILD_DIR)/resume.pdf
-	cp $(BUILD_DIR)/resume.pdf $(BLOG_DIR)/assets/resume.pdf
+stage: $(PDF)
+	cp $(PDF) $(BLOG_DIR)/assets/resume.pdf
+	cp $(MD) $(BLOG_DIR)/resume.md
 
 jekyll: stage
 	cd $(BLOG_DIR) && jekyll server
 
 push: stage
-	git -C $(BLOG_DIR) add $(BLOG_DIR)/data/cv.pdf
-	git -C $(BLOG_DIR) add $(BLOG_DIR)/cv.md
-	git -C $(BLOG_DIR) commit -m "Update vitae."
+	git -C $(BLOG_DIR) add $(BLOG_DIR)/assets/resume.pdf
+	git -C $(BLOG_DIR) add $(BLOG_DIR)/resume.md
+	git -C $(BLOG_DIR) commit -m "Update resume"
 	git -C $(BLOG_DIR) push
 
 clean:

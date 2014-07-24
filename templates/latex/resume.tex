@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \usepackage[hmargin=0.75in, vmargin=0.75in]{geometry}
-\usepackage{tabularx, multirow, graphicx, tablists}
+\usepackage{tabularx, multirow, graphicx, tablists, hyperref}
 
 %-------------------------------------------------------------------------------
 %                                  Title Setup
@@ -71,10 +71,10 @@
   ~{ endif }~\\
 
   Current Address: ~{{ address }}~&
-  ~{{ website }}~&\\
+  \url{~{{ website }}~}&\\
 
   ~{ if phone }~ ~{{ phone }}~ ~{ endif }~&
-  ~{ if email }~ ~{{ email }}~ ~{ endif }~&\\
+  ~{ if email }~ \href{mailto:~{{ email }}~}{~{{email}}~} ~{ endif }~&\\
 \end{tabularx}
 
 %---------------------------------------
