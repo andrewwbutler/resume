@@ -7,6 +7,4 @@
 
 *.sublime-workspace
 
-env/
-
 build/
