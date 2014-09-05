@@ -10,39 +10,58 @@ source: https://github.com/emichael/resume
 image: QRcode.png
 
 &obj Objective:
-  To create and innovate in an internship during the summer of 2015, to take on a new and interesting challenge
+  To create and innovate, to take on a new and interesting challenge
 
 &edu Education:
   - date: May 2015
-    school: The University of Texas at Austin
-    major: Computer Science Honors (\textbf{Turing Scholars}), Mathematics Honors, Plan II Honors
+    school: University of Texas at Austin
+    major: B.S. Computer Science Honors (\textbf{Turing Scholars}), B.A. Plan II Honors
     gpa: "4.0"
 
 &exp Experience:
   - date: Summer 2013
     role: Software Engineering Intern
-    employer: Google - Mountain View, CA
+    employer: Google - Mountain View
     notes:
       - Developed a full-text search module for Google's Course Builder, a Google App Engine application
       - Worked across the application's entire stack in CSS, HTML (with Jinja templating), Javascript, and Python
 
   - date: Summer 2012
     role: Software Engineering Intern
-    employer: IBM - Austin, TX
+    employer: IBM - Austin
     notes:
       - Developed a tool to expedite the integration and build process for the Business Process Management (BPM) group using DB2, TeamCity, RTC, and BPM
       - Created RESTful APIs in Java
+
+  # - date: 2012 - 2015
+  #   role: Various Positions
+  #   employer: University of Texas at Austin
+  #   notes:
+  #     - Worked for Quest, UT's online assessment system
+  #     - Graded in the Department of Mathematics
+  #     - Served as an Undergraduate Teaching Assistant for the honors section of Research Methods
+
+&rxp Research Experience:
+  - date: Spring 2014 - Present
+    topic: Distributed Computing
+    notes:
+      - I am working with Prof. Lorenzo Alvisi in the area of Distributed Computing
+
+  - date: Spring 2012
+    topic: Autonomous Vehicles Stream - Freshman Research Initiative
+    notes:
+      - I worked in the Autonomous Vehicles FRI Stream using Robot Operating System and implemented a SLAM system for use with the vehicle
 
 &scw Selected Coursework:
   legend: (H) = Honors\ \ (G) = Graduate\ \ (F) = Fall 2014
   items: &scw-courses
     - Distributed Computing (G)
+    - Programming Languages (H, F)
     - Operating Systems (H)
     - Computer Organization and Arch. (H)
-    - Programming Languages (H, F)
     - Artificial Intelligence (H)
     - Autonomous Vehicles
-    - Algorithms (H)
+    - Algorithms and Theory of Computation (H)
     - Data Structures (H)
     - Analysis of Programs (H)
 
@@ -63,17 +82,33 @@ image: QRcode.png
 &oas Other Activities:
   - Turing Scholars Students' Association
   - Dean's Scholars Council Member
+  # - Tutoring in the CS Department
 
 &shs Selected Honors:
+  ## Scholarships
+    # UEPS
   - Ralph R. Nelson Endowed Presidential Scholarship
-  - Joe P. Liberty Endowed Scholarship
-  - Distinguished College Scholar (2013, 2014)
+  - Eva Stevenson Woods Endowed Presidential Scholarship
+    # CNS
+  # - Kevin E. Underhill Memorial Endowed Presidential Scholarship
+    # Plan II
+  # - Renee Wolfe Zelman and Norman Zelman Endowed Scholarship
+  # - Joe P. Liberty Endowed Scholarship
+  # - Michelle K. Brock and Sophia and G.W. Brock Endowed Presidential Scholarship
+    # CoLA
+  # - Frances Rather Seybold and Frances Randolph Rather Seybold Endowed Presidential Scholarship
+    # Other
+  # - National PGA Scholarship
+  # - Chevron Scholarship
+  # - Ben Caldwell Memorial Scholarship
+  ## Other
+  - Distinguished College Scholar
   - National Merit Scholar
 
 
 sections:
-  - title: *obj
-    type: normal
+  # - title: *obj
+  #   type: normal
 
   - title: *edu
     type: education
