@@ -28,7 +28,7 @@ $(PDF): $(BUILD_DIR) $(TEX)
 viewpdf: $(PDF)
 	gnome-open $(PDF)
 
-stage: $(PDF)
+stage: $(PDF) $(MD)
 	cp $(PDF) $(BLOG_DIR)/assets/resume.pdf
 	cp $(MD) $(BLOG_DIR)/resume.md
 

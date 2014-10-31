@@ -7,7 +7,6 @@ phone:
 
 pdf: /assets/resume.pdf
 source: https://github.com/emichael/resume
-image: QRcode.png
 
 &obj Objective:
   To create and innovate, to take on a new and interesting challenge

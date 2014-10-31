@@ -3,6 +3,8 @@
 \usepackage[hmargin=0.75in, vmargin=0.75in]{geometry}
 \usepackage{tabularx, multirow, graphicx, tablists, hyperref}
 
+\newcolumntype{Z}{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}X}
+
 %-------------------------------------------------------------------------------
 %                                  Title Setup
 %-------------------------------------------------------------------------------
@@ -64,17 +66,19 @@
 %---------------------------------------
 %                Header
 %---------------------------------------
-\begin{tabularx}{\textwidth}{@{} X c X @{}}
-  &{\LARGE \bf ~{{ name }}~}&
-  ~{ if image }~
-    \hfill\multirow{-4}{*}{\includegraphics[width=3cm]{~{{ image }}~}}
-  ~{ endif }~\\
+\begin{tabularx}{\textwidth}{@{} X c Z @{}}
+  &{\LARGE \bf ~{{ name }}~}&\\
 
+  % First Row
   Current Address: ~{{ address }}~&
-  \url{~{{ website }}~}&\\
+  \url{~{{ website }}~}&
+  Generated ~{{ today }}~\\
 
-  ~{ if phone }~ ~{{ phone }}~ ~{ endif }~&
-  ~{ if email }~ \href{mailto:~{{ email }}~}{~{{email}}~} ~{ endif }~&\\
+  % Second Row
+  ~{ if email or phone }~
+    ~{ if phone }~ ~{{ phone }}~ ~{ endif }~&
+    ~{ if email }~ \href{mailto:~{{ email }}~}{~{{email}}~} ~{ endif }~\\
+  ~{ endif }~
 \end{tabularx}
 
 %---------------------------------------

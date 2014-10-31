@@ -63,10 +63,6 @@ markdown_template_env = Environment(
 )
 
 
-with open(YAML_FILE) as f:
-    yaml_contents = yaml.load(f)
-
-
 def latexToMd(s):
     if isinstance(s, str):
         for o, r in REPLACEMENTS:
@@ -135,6 +131,9 @@ def render_markdown_section(title, section_type, data):
 
 
 def main():
+    with open(YAML_FILE) as f:
+        yaml_contents = yaml.load(f)
+
     # LaTeX first...
     body = ''
     for section in yaml_contents['sections']:
@@ -151,6 +150,7 @@ def main():
 
     template = latex_template_env.get_template(LATEX_TEMPLATE)
     yaml_contents['body'] = body
+    yaml_contents['today'] = date.today().strftime("%B %d, %Y")
     rendered_resume = template.render(yaml_contents)
 
     with open(LATEX_OUTPUT_FILE, 'w') as o:
@@ -166,7 +166,6 @@ def main():
         body += rendered_section + '\n\n'
 
     template = markdown_template_env.get_template(MARKDOWN_TEMPLATE)
-    yaml_contents['today'] = date.today().strftime("%B %d, %Y")
     yaml_contents['body'] = body
     rendered_resume = template.render(yaml_contents)
     with open(MARKDOWN_OUTPUT_FILE, 'w') as o:
