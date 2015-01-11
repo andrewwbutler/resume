@@ -3,9 +3,10 @@
 # Brandon Amos <http://bamos.io> and Ellis Michael <http://ellismichael.com>
 
 BLOG_DIR=$(HOME)/ellismichael.com
-TEMPLATE_DIR=templates
-BUILD_DIR=build
 
+TEMPLATES=$(shell find templates -type f)
+
+BUILD_DIR=build/
 TEX=$(BUILD_DIR)/resume.tex
 PDF=$(BUILD_DIR)/resume.pdf
 MD=$(BUILD_DIR)/resume.md
@@ -16,18 +17,20 @@ else
 	YAML_FILES = resume.yaml
 endif
 
-.PHONY: all viewpdf stage jekyll push clean
+.PHONY: all public viewpdf stage jekyll push clean
 
 all: $(PDF) $(MD)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-$(TEX) $(MD): $(BUILD_DIR) $(TEMPLATE_DIR)/latex/* $(TEMPLATE_DIR)/markdown/* \
-							$(YAML_FILES) generate.py
+public: $(BUILD_DIR) $(TEMPLATES) $(YAML_FILES) generate.py
+	./generate.py resume.yaml
+
+$(TEX) $(MD): $(BUILD_DIR) $(TEMPLATES) $(YAML_FILES) generate.py
 	./generate.py $(YAML_FILES)
 
-$(PDF): $(BUILD_DIR) $(TEX)
+$(PDF): $(TEX)
 	latexmk -pdf -cd- -quiet -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume
 	latexmk -c -cd $(BUILD_DIR)/resume
 
