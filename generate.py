@@ -62,6 +62,18 @@ class RenderContext(object):
     def _render_template(self, template_name, yaml_data):
         return self._jinja_env.get_template(template_name).render(yaml_data)
 
+    @staticmethod
+    def _make_double_list(items):
+        groups = []
+        items_temp = list(items)
+        while len(items_temp):
+            group = {}
+            group['first'] = items_temp.pop(0)
+            if len(items_temp):
+                group['second'] = items_temp.pop(0)
+            groups.append(group)
+        return groups
+
     def render_resume(self, yaml_data):
         # Make the replacements first on the yaml_data
         yaml_data = self.make_replacements(yaml_data)
@@ -73,6 +85,10 @@ class RenderContext(object):
                 section_type = section_data[self._context_type_name]
             elif 'type' in section_data:
                 section_type = section_data['type']
+
+            if section_type == 'doubleitems':
+                section_data['items'] = self._make_double_list(
+                    section_data['items'])
 
             section_template_name = os.path.join(
                 self.SECTIONS_DIR, section_type + self._file_ending)
