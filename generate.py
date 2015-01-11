@@ -18,20 +18,27 @@ from jinja2 import Environment, FileSystemLoader
 
 
 class RenderContext(object):
+    BUILD_DIR = 'build'
+    TEMPLATES_DIR = 'templates'
     SECTIONS_DIR = 'sections'
     DEFAULT_SECTION = 'items'
+    BASE_FILE_NAME = 'resume'
 
-    def __init__(self, output_file, templates_dir, base_template, file_ending,
-            jinja_options, replacements):
+    def __init__(self, context_name, file_ending, jinja_options, replacements):
         self._file_ending = file_ending
         self._replacements = replacements
 
-        self._output_file = output_file
-        self._base_template = base_template
+        context_templates_dir = os.path.join(self.TEMPLATES_DIR, context_name)
+
+        self._output_file = os.path.join(
+            self.BUILD_DIR, self.BASE_FILE_NAME + self._file_ending)
+        self._base_template = self.BASE_FILE_NAME + self._file_ending
+
+        self._context_type_name = context_name + 'type'
 
         self._jinja_options = jinja_options.copy()
         self._jinja_options['loader'] = FileSystemLoader(
-            searchpath=templates_dir)
+            searchpath=context_templates_dir)
         self._jinja_env = Environment(**self._jinja_options)
 
     def make_replacements(self, yaml_data):
@@ -61,8 +68,12 @@ class RenderContext(object):
 
         body = ''
         for section_data in yaml_data['sections']:
-            section_type = (self.DEFAULT_SECTION if not 'type' in section_data
-                else section_data['type'])
+            section_type = self.DEFAULT_SECTION
+            if self._context_type_name in section_data:
+                section_type = section_data[self._context_type_name]
+            elif 'type' in section_data:
+                section_type = section_data['type']
+
             section_template_name = os.path.join(
                 self.SECTIONS_DIR, section_type + self._file_ending)
 
@@ -80,9 +91,7 @@ class RenderContext(object):
 
 
 LATEX_CONTEXT = RenderContext(
-    'build/resume.tex',
-    'templates/latex/',
-    'resume.tex',
+    'latex',
     '.tex',
     dict(
         block_start_string='~<',
@@ -98,9 +107,7 @@ LATEX_CONTEXT = RenderContext(
 )
 
 MARKDOWN_CONTEXT = RenderContext(
-    'build/resume.md',
-    'templates/markdown/',
-    'resume.md',
+    'markdown',
     '.md',
     dict(
         trim_blocks=True,
