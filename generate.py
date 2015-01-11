@@ -13,7 +13,7 @@ import yaml
 
 from copy import copy
 from datetime import date
-from jinja2 import Environment, FileSystemLoader, TemplateNotFound
+from jinja2 import Environment, FileSystemLoader
 
 
 class RenderContext(object):
@@ -62,12 +62,6 @@ class RenderContext(object):
             section_type = (self.DEFAULT_SECTION if not 'type' in section_data
                 else section_data['type'])
             section_template = section_type + self._file_ending
-
-            # Revert to default section if template unavailable
-            try:
-                self._jinja_env.get_template(section_template)
-            except TemplateNotFound:
-                section_template = self.DEFAULT_SECTION + self._file_ending
 
             rendered_section = self._render_template(
                 section_template, section_data)
