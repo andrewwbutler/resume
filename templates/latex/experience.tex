@@ -1,0 +1,14 @@
+~< extends "section.tex" >~
+~< block body >~
+  ~< for job in items >~
+    \cventry
+      {<< job.date >>}
+      {<< job.role >>}
+      {<< job.employer >>}{}{}{}
+    \begin{itemize}
+      ~< for note in job.notes >~
+        \item{<< note >>}
+      ~< endfor >~
+    \end{itemize}
+  ~< endfor >~
+~< endblock body >~

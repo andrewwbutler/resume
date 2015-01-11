@@ -1,10 +1,15 @@
-*.pdf
+# Output files
+build/
+
+# LaTeX intermediate files
 *.synctex.gz
 *.aux
 *.fdb_latexmk
 *.log
 *.out
 
+# Sublime files
 *.sublime-workspace
 
-build/
+# Personal details that shouldn't do into the repo
+*.hidden.yaml

@@ -1,134 +1,121 @@
 ---
-name: Ellis Michael
-address: Austin, TX
-website: http://ellismichael.com
-email:
-phone:
+firstname: Ellis
+lastname: Michael
 
+website: http://ellismichael.com
+github: emichael
+
+
+# Markdown details
 pdf: /assets/resume.pdf
 source: https://github.com/emichael/resume
 
-&obj Objective:
-  To create and innovate, to take on a new and interesting challenge
-
-&edu Education:
-  - date: May 2015
-    school: University of Texas at Austin
-    major: B.S. Computer Science Honors (\textbf{Turing Scholars}), B.A. Plan II Honors
-    gpa: "4.0"
-
-&exp Experience:
-  - date: Summer 2013
-    role: Software Engineering Intern
-    employer: Google - Mountain View
-    notes:
-      - Developed a full-text search module for Google's Course Builder, a Google App Engine application
-      - Worked across the application's entire stack in CSS, HTML (with Jinja templating), Javascript, and Python
-
-  - date: Summer 2012
-    role: Software Engineering Intern
-    employer: IBM - Austin
-    notes:
-      - Developed a tool to expedite the integration and build process for the Business Process Management (BPM) group using DB2, TeamCity, RTC, and BPM
-      - Created RESTful APIs in Java
-
-  # - date: 2012 - 2015
-  #   role: Various Positions
-  #   employer: University of Texas at Austin
-  #   notes:
-  #     - Worked for Quest, UT's online assessment system
-  #     - Graded in the Department of Mathematics
-  #     - Served as an Undergraduate Teaching Assistant for the honors section of Research Methods
-
-&rxp Research Experience:
-  - date: Spring 2014 - Present
-    topic: Distributed Computing
-    notes:
-      - I am working with Prof. Lorenzo Alvisi in the area of Distributed Computing
-
-  - date: Spring 2012
-    topic: Autonomous Vehicles Stream - Freshman Research Initiative
-    notes:
-      - I worked in the Autonomous Vehicles FRI Stream using Robot Operating System and implemented a SLAM system for use with the vehicle
-
-&scw Selected Coursework:
-  legend: (H) = Honors\ \ (G) = Graduate\ \ (F) = Fall 2014
-  items: &scw-courses
-    - Distributed Computing (G)
-    - Programming Languages (H, F)
-    - Operating Systems (H)
-    - Computer Organization and Arch. (H)
-    - Artificial Intelligence (H)
-    - Autonomous Vehicles
-    - Algorithms and Theory of Computation (H)
-    - Data Structures (H)
-    - Analysis of Programs (H)
-
-&sks Skills:
-  - "Languages: Java, Python, C, C++, Haskell, HTML, CSS, JavaScript, PHP, XML/XSD, SQL, x86 Assembly, \\TeX"
-  - Agile, pair programming, extreme programming (XP) methodologies
-
-&prg Programming:
-  - Implemented in Java classic distributed protocols including Three-phase Commit, Paxos, and Bayou
-  - Built significant pieces of the JOS operating system including a memory manager, scheduler, file system, and network driver
-  - Implemented parts of a pipelined processor
-  - Optimized C and assembly language code using code motion, blocking, loop unrolling, branch prediction
-  - Completed Berkeley's Pac-Man artificial intelligence projects
-  - Partnered in the development of a SLAM implementation in ROS for the UT-Austin robotic vehicle
-  - Implemented Tetris AI optimized with a genetic algorithm
-  - Created a web crawler and search engine with relevancy prediction
-
-&oas Other Activities:
-  - Turing Scholars Students' Association
-  - Dean's Scholars Council Member
-  # - Tutoring in the CS Department
-
-&shs Selected Honors:
-  ## Scholarships
-    # UEPS
-  - Ralph R. Nelson Endowed Presidential Scholarship
-  - Eva Stevenson Woods Endowed Presidential Scholarship
-    # CNS
-  # - Kevin E. Underhill Memorial Endowed Presidential Scholarship
-    # Plan II
-  # - Renee Wolfe Zelman and Norman Zelman Endowed Scholarship
-  # - Joe P. Liberty Endowed Scholarship
-  # - Michelle K. Brock and Sophia and G.W. Brock Endowed Presidential Scholarship
-    # CoLA
-  # - Frances Rather Seybold and Frances Randolph Rather Seybold Endowed Presidential Scholarship
-    # Other
-  # - National PGA Scholarship
-  # - Chevron Scholarship
-  # - Ben Caldwell Memorial Scholarship
-  ## Other
-  - Distinguished College Scholar
-  - National Merit Scholar
-
 
 sections:
-  # - title: *obj
-  #   type: normal
-
-  - title: *edu
+  - name: Education
     type: education
+    items:
+      - date: May 2015
+        school: University of Texas at Austin
+        major: B.S. Computer Science Honors (\textbf{Turing Scholars}), B.A. Plan II Honors
+        gpa: "4.0"
 
-  - title: *exp
+
+  - name: Work Experience
     type: experience
+    items:
+      - date: Summer 2013
+        role: Software Engineering Intern
+        employer: Google - Mountain View
+        notes:
+          - "Developed a full-text search module for Google's Course Builder, a Google App Engine application"
+          - "Worked across the application's entire stack in CSS, HTML (with Jinja templating), Javascript, and Python"
 
-  - title: *scw
+      - date: Summer 2012
+        role: Software Engineering Intern
+        employer: IBM - Austin
+        notes:
+          - "Developed a tool to expedite the integration and build process for the Business Process Management (BPM) group using DB2, TeamCity, RTC, and BPM"
+          - "Created RESTful APIs in Java"
+
+      - date: 2012 - 2015
+        role: Various Positions
+        employer: University of Texas at Austin
+        notes:
+          - "Worked for Quest, UT's online assessment system"
+          - Graded in the Department of Mathematics
+          - Served as an Undergraduate Teaching Assistant for the honors section of Research Methods
+
+
+  - name: Research Experience
+    type: research
+    items:
+      - date: Spring 2014 - Present
+        topic: Distributed Computing
+        notes:
+          - I am working with Prof. Lorenzo Alvisi in the area of Distributed Computing
+
+      - date: Spring 2012
+        topic: Autonomous Vehicles Stream - Freshman Research Initiative
+        notes:
+          - I worked in the Autonomous Vehicles FRI Stream using Robot Operating System and implemented a SLAM system for use with the vehicle
+
+  - name: Selected Coursework
     type: tablist
-    rowsize: 3
+    legend: (H) = Honors\ \ (G) = Graduate
+    items:
+      - Distributed Computing (G)
+      - Programming Languages (H)
+      - Algorithms and Theory of Computation (H)
+      - Operating Systems (H)
+      - Computer Organization and Arch. (H)
+      - Artificial Intelligence (H)
+      - Autonomous Vehicles
+      - Data Structures (H)
+      - Analysis of Programs (H)
 
-  - title: *sks
-    type: items
+  - name: Skills
+    items:
+      - "Languages: Java, Python, C, C++, Haskell, HTML, CSS, JavaScript, PHP, XML/XSD, SQL, x86 Assembly, \\TeX"
+      - Agile, pair programming, extreme programming (XP) methodologies
 
-  - title: *prg
-    type: items
+  - name: Programming
+    items:
+      - Implemented in Java classic distributed protocols including Three-phase Commit, Paxos, and Bayou
+      - Built significant pieces of the JOS operating system including a memory manager, scheduler, file system, and network driver
+      - Implemented parts of a pipelined processor
+      - Optimized C and assembly language code using code motion, blocking, loop unrolling, branch prediction
+      - Completed Berkeley's Pac-Man artificial intelligence projects
+      - Partnered in the development of a SLAM implementation in ROS for the UT-Austin robotic vehicle
+      - Implemented Tetris AI optimized with a genetic algorithm
+      - Created a web crawler and search engine with relevancy prediction
 
-  - title: *oas
-    type: items
+  - name: Activities
+    items:
+      - Dean's Scholars Council Member, 2011--2015
+      - University of Texas Quiz Bowl Team Member, 2011--2015
+      - Tutoring in the CS Department, 2012--2013
 
-  - title: *shs
-    type: tablist
-    rowsize: 2
+  - name: Interests
+    items:
+      - Distributed Computing
+      - Algorithms and Complexity
+      - Online Education
+
+  - name: Selected Honors
+    items:
+      ## Scholarships
+        # UEPS
+      - Distinguished College Scholar in the College of Natural Sciences at UT Austin, 2012--2014
+      - Frances Rather Seybold and Frances Randolph Rather Seybold Endowed Presidential Scholarship, 2014
+      - Eva Stevenson Woods Endowed Presidential Scholarship, 2014
+      - Michelle K. Brock and Sophia and G.W. Brock Endowed Presidential Scholarship, 2014 and 2013
+      - Kevin E. Underhill Memorial Endowed Presidential Scholarship, 2014 and 2013
+      - Chevron Scholar, 2014 annd 2012
+      - Ralph R. Nelson Endowed Presidential Scholarship, 2013
+      - Bettie Johnson Halsell Endowed Presidential Scholarship in Liberal Arts, 2013
+      - Renee Wolfe Zelman and Norman Zelman Endowed Scholarship, 2012
+      - Joe P. Liberty Endowed Scholarship in Plan II, 2012
+      # TODO: include info about the book award
+      - College of Natural Sciences Book Award, Fall 2013
 ...

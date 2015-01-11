@@ -1,0 +1,12 @@
+~< extends "section.tex" >~
+~< block body >~
+  ~< for school in items >~
+    \cventry
+      {<< school.date >>}
+      {<< school.major >>}
+      {<< school.school >>}
+      {}
+      {\textit{<< school.gpa >>}}
+      {}
+  ~< endfor >~
+~< endblock body >~

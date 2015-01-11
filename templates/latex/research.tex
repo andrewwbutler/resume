@@ -1,0 +1,16 @@
+~< extends "section.tex" >~
+~< block body >~
+  ~< for r in items >~
+    \cventry
+      {<< r.date >>}
+      {<< r.topic >>}
+      {}{}{}{}
+
+    \begin{itemize}
+      ~< for note in r.notes >~
+        \item{<< note >>}
+      ~< endfor >~
+    \end{itemize}
+
+  ~< endfor >~
+~< endblock body >~

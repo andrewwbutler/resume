@@ -1,90 +1,22 @@
-\documentclass{article}
+\documentclass[11pt,letterpaper,sans]{moderncv}
 
-\usepackage[hmargin=0.75in, vmargin=0.75in]{geometry}
-\usepackage{tabularx, multirow, graphicx, tablists, hyperref}
+\moderncvstyle{casual}
+\moderncvcolor{blue}
 
-\newcolumntype{Z}{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}X}
+% Page margins
+\usepackage[scale=0.75]{geometry}
 
-%-------------------------------------------------------------------------------
-%                                  Title Setup
-%-------------------------------------------------------------------------------
-\usepackage{titlesec}
-\titleformat{\section}
-  {\Large\bfseries}{\thesection}{1em}{}[\hrule]
-
-\setlength{\parindent}{0pt}
-
-%-------------------------------------------------------------------------------
-%                                  Environments
-%-------------------------------------------------------------------------------
-\usepackage{xparse, changepage}
-\NewDocumentEnvironment{resumesection}{m O{}}
-{
-  \section*{#1\hfill{\normalsize\normalfont#2}}
-  \begin{adjustwidth}{20pt}{}
-}
-{
-  \end{adjustwidth}
-  \vspace{-10pt}
-}
-
-\newenvironment{items}
-{
-  \begin{adjustwidth}{-15pt}{}
-  \begin{itemize}
-  \setlength{\itemsep}{0pt}
-}
-{
-  \end{itemize}
-  \end{adjustwidth}
-}
-
-%-------------------------------------------------------------------------------
-%                                    Commands
-%-------------------------------------------------------------------------------
-\newcommand{\jobheading}[3]
-{
-  \begin{tabularx}{\linewidth}{@{} X X X @{}}
-    \textbf{#3} & #2 & \hfill \textit{#1}
-  \end{tabularx}
-}
-
-\newcommand{\school}[4]
-{
-    \textbf{#2}\hfill\textit{#1}
-    \par\hspace{15pt}#3
-    \par\hspace{15pt}{GPA: \textbf{#4}}\par
-}
+\name{<< firstname >>}{<< lastname >>}
+\address{<< address >>}{<< city >>, << state >> << zip >>}{<< country >>}
+\phone[mobile]{<< mobile >>}
+\email{<< email >>}
+\homepage{<< website >>}
+\social[github]{<< github >>}
 
 
-%-------------------------------------------------------------------------------
-%                                  Begin Document
-%-------------------------------------------------------------------------------
 \begin{document}
-\thispagestyle{empty} % First page shouldn't have a page number
+\makecvtitle
 
-%---------------------------------------
-%                Header
-%---------------------------------------
-\begin{tabularx}{\textwidth}{@{} X c Z @{}}
-  &{\LARGE \bf ~{{ name }}~}&\\
-
-  % First Row
-  Current Address: ~{{ address }}~&
-  \url{~{{ website }}~}&
-  Generated ~{{ today }}~\\
-
-  % Second Row
-  ~{ if email or phone }~
-    ~{ if phone }~ ~{{ phone }}~ ~{ endif }~&
-    ~{ if email }~ \href{mailto:~{{ email }}~}{~{{email}}~} ~{ endif }~\\
-  ~{ endif }~
-\end{tabularx}
-
-%---------------------------------------
-%                Body
-%---------------------------------------
-
-~{{ body }}~
+  << body >>
 
 \end{document}

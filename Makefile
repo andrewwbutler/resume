@@ -10,6 +10,12 @@ TEX=$(BUILD_DIR)/resume.tex
 PDF=$(BUILD_DIR)/resume.pdf
 MD=$(BUILD_DIR)/resume.md
 
+ifneq ("$(wildcard resume.hidden.yaml)","")
+	YAML_FILES = resume.yaml resume.hidden.yaml
+else
+	YAML_FILES = resume.yaml
+endif
+
 .PHONY: all viewpdf stage jekyll push clean
 
 all: $(PDF) $(MD)
@@ -18,8 +24,8 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 $(TEX) $(MD): $(BUILD_DIR) $(TEMPLATE_DIR)/latex/* $(TEMPLATE_DIR)/markdown/* \
-							resume.yaml generate.py
-	python generate.py
+							$(YAML_FILES) generate.py
+	./generate.py $(YAML_FILES)
 
 $(PDF): $(BUILD_DIR) $(TEX)
 	latexmk -pdf -cd- -quiet -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume

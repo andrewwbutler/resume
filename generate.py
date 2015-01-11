@@ -7,170 +7,149 @@ __author__ = [
     'Ellis Michael <http://ellismichael.com>',
 ]
 
+import argparse
 import re
 import yaml
 
+from copy import copy
 from datetime import date
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, TemplateNotFound
 
 
-REPLACEMENTS = [
-    (r'\\ ', '&nbsp;'),                # LaTeX spaces to &nbsp;
-    (r'\\textbf{(.*)}', r'**\1**'),    # Bold text
-    (r'\\TeX', r'TeX')                 # \TeX to boring old TeX
-]
+class RenderContext(object):
+    DEFAULT_SECTION = 'items'
 
-YAML_FILE = 'resume.yaml'
+    def __init__(self, output_file, templates_dir, base_template, file_ending,
+            jinja_options, replacements):
+        self._file_ending = file_ending
+        self._replacements = replacements
 
-LATEX_OUTPUT_FILE = 'build/resume.tex'
-LATEX_TEMPLATES_DIR = 'templates/latex/'
-LATEX_TEMPLATE = 'resume.tex'
-LATEX_SECTION_TEMPLATES = {
-    'normal': 'section.tex',
-    'items': 'itemsection.tex',
-    'education': 'educationsection.tex',
-    'experience': 'experiencesection.tex',
-    'tablist': 'tablistsection.tex',
-}
-latex_template_env = Environment(
-    loader=FileSystemLoader(searchpath=LATEX_TEMPLATES_DIR),
-    block_start_string='~{',
-    block_end_string='}~',
-    variable_start_string='~{{',
-    variable_end_string='}}~',
-    comment_start_string='~{#',
-    comment_end_string='#}~',
-    trim_blocks=True,
-    lstrip_blocks=True
-)
+        self._output_file = output_file
+        self._base_template = base_template
 
+        self._jinja_options = jinja_options.copy()
+        self._jinja_options['loader'] = FileSystemLoader(
+            searchpath=templates_dir)
+        self._jinja_env = Environment(**self._jinja_options)
 
-MARKDOWN_OUTPUT_FILE = 'build/resume.md'
-MARKDOWN_TEMPLATES_DIR = 'templates/markdown/'
-MARKDOWN_TEMPLATE = 'resume.md'
-MARKDOWN_SECTION_TEMPLATES = {
-    'normal': 'section.md',
-    'items': 'itemsection.md',
-    'tablist': 'itemsection.md',
-    'education': 'educationsection.md',
-    'experience': 'experiencesection.md',
-}
+    def make_replacements(self, yaml_data):
+        # Make a copy of the yaml_data so that this function is idempotent
+        yaml_data = copy(yaml_data)
 
-markdown_template_env = Environment(
-    loader=FileSystemLoader(searchpath=MARKDOWN_TEMPLATES_DIR),
-    trim_blocks=True,
-    lstrip_blocks=True
-)
+        if isinstance(yaml_data, str):
+            for o, r in self._replacements:
+                yaml_data = re.sub(o, r, yaml_data)
 
+        elif isinstance(yaml_data, dict):
+            for k, v in yaml_data.items():
+                yaml_data[k] = self.make_replacements(v)
 
-def latexToMd(s):
-    if isinstance(s, str):
-        for o, r in REPLACEMENTS:
-            s = re.sub(o, r, s)
-    elif isinstance(s, dict):
-        for k, v in s.items():
-            s[k] = latexToMd(v)
-    elif isinstance(s, list):
-        for idx, item in enumerate(s):
-            s[idx] = latexToMd(item)
-    return s
+        elif isinstance(yaml_data, list):
+            for idx, item in enumerate(yaml_data):
+                yaml_data[idx] = self.make_replacements(item)
 
+        return yaml_data
 
-def make_groups(l, size):
-    groups = []
-    l_temp = list(l)
-    while len(l_temp):
-        g = []
-        for _ in range(size):
+    def render_template(self, template_name, yaml_data):
+        return self._jinja_env.get_template(template_name).render(yaml_data)
+
+    def write_to_outfile(self, output_data):
+        with open(self._output_file, 'w') as out:
+            out.write(output_data)
+
+    def process_resume(self, yaml_data):
+        # Make the replacements first on the yaml_data
+        yaml_data = self.make_replacements(yaml_data)
+
+        body = ''
+        for section_data in yaml_data['sections']:
+            section_type = (self.DEFAULT_SECTION if not 'type' in section_data
+                else section_data['type'])
+            section_template = section_type + self._file_ending
+
+            # Revert to default section if template unavailable
             try:
-                g.append(l_temp.pop(0))
-            except IndexError:
-                break
-        groups.append(tuple(g))
-    return groups
+                self._jinja_env.get_template(section_template)
+            except TemplateNotFound:
+                section_template = self.DEFAULT_SECTION + self._file_ending
+
+            # TODO: fix tablist and groups
+            if section_type == 'tablist':
+                groups = []
+                items_temp = list(section_data['items'])
+                while len(items_temp):
+                    g = []
+                    for _ in range(2):
+                        try:
+                            g.append(items_temp.pop(0))
+                        except IndexError:
+                            break
+                    groups.append(tuple(g))
+
+                section_data['groups'] = groups
+
+            rendered_section = self.render_template(
+                section_template, section_data)
+            body += rendered_section + '\n\n'
+
+        yaml_data['body'] = body
+        yaml_data['today'] = date.today().strftime("%B %d, %Y")
+        rendered_resume = self.render_template(self._base_template, yaml_data)
+
+        self.write_to_outfile(rendered_resume)
 
 
-def render_latex_section(title, section_type, data, row_size=2):
-    template = latex_template_env.get_template(
-        LATEX_SECTION_TEMPLATES[section_type])
-    context = {}
-    context['title'] = title
+LATEX_CONTEXT = RenderContext(
+    'build/resume.tex',
+    'templates/latex/',
+    'resume.tex',
+    '.tex',
+    dict(
+        block_start_string='~<',
+        block_end_string='>~',
+        variable_start_string='<<',
+        variable_end_string='>>',
+        comment_start_string='<#',
+        comment_end_string='#>',
+        trim_blocks=True,
+        lstrip_blocks=True
+    ),
+    []
+)
 
-    if 'legend' in data:
-        context['legend'] = data['legend']
-    if 'items' in data:
-        context['items'] = data['items']
-    else:
-        context['items'] = data
-
-    if section_type == 'tablist':
-        context['groups'] = make_groups(context['items'], row_size)
-    elif section_type == 'normal':
-        context['data'] = context['items']
-
-    return template.render(context)
-
-
-def render_markdown_section(title, section_type, data):
-    template = markdown_template_env.get_template(
-        MARKDOWN_SECTION_TEMPLATES[section_type])
-    context = {}
-    context['title'] = title
-
-    if 'legend' in data:
-        context['legend'] = data['legend']
-    if 'items' in data:
-        context['items'] = data['items']
-    else:
-        context['items'] = data
-
-    if section_type == 'normal':
-        context['data'] = context['items']
-
-    return template.render(context)
+MARKDOWN_CONTEXT = RenderContext(
+    'build/resume.md',
+    'templates/markdown/',
+    'resume.md',
+    '.md',
+    dict(
+        trim_blocks=True,
+        lstrip_blocks=True
+    ),
+    [
+        (r'\\ ', '&nbsp;'),                # LaTeX spaces to &nbsp;
+        (r'\\textbf{(.*)}', r'**\1**'),    # Bold text
+        (r'\\TeX', r'TeX')                 # \TeX to boring old TeX
+    ]
+)
 
 
 def main():
-    with open(YAML_FILE) as f:
-        yaml_contents = yaml.load(f)
+    # Parse the command line arguments
+    parser = argparse.ArgumentParser(description=
+        'Generates LaTeX and Markdown resumes from data in YAML files.')
+    parser.add_argument('yamls', metavar='DATAFILE.yaml', nargs='+')
+    args = parser.parse_args()
 
-    # LaTeX first...
-    body = ''
-    for section in yaml_contents['sections']:
-        title = section['title']
-        section_type = section['type']
-        data = yaml_contents[title]
+    # Process in order so that the values from the last file take precedence
+    resume_data = {}
+    for yaml_file in args.yamls:
+        with open(yaml_file) as f:
+            resume_data.update(yaml.load(f))
 
-        if 'rowsize' in section:
-            rendered_section = render_latex_section(
-                title, section_type, data, section['rowsize'])
-        else:
-            rendered_section = render_latex_section(title, section_type, data)
-        body += rendered_section + '\n\n'
-
-    template = latex_template_env.get_template(LATEX_TEMPLATE)
-    yaml_contents['body'] = body
-    yaml_contents['today'] = date.today().strftime("%B %d, %Y")
-    rendered_resume = template.render(yaml_contents)
-
-    with open(LATEX_OUTPUT_FILE, 'w') as o:
-        o.write(rendered_resume)
-
-    # Now, Markdown
-    body = ''
-    for section in yaml_contents['sections']:
-        title = section['title']
-        section_type = section['type']
-        data = latexToMd(yaml_contents[title])
-        rendered_section = render_markdown_section(title, section_type, data)
-        body += rendered_section + '\n\n'
-
-    template = markdown_template_env.get_template(MARKDOWN_TEMPLATE)
-    yaml_contents['body'] = body
-    rendered_resume = template.render(yaml_contents)
-    with open(MARKDOWN_OUTPUT_FILE, 'w') as o:
-        o.write(rendered_resume)
-
+    # TODO: add optional flags
+    LATEX_CONTEXT.process_resume(resume_data)
+    MARKDOWN_CONTEXT.process_resume(resume_data)
 
 if __name__ == "__main__":
     main()
