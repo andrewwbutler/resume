@@ -8,6 +8,7 @@ __author__ = [
 ]
 
 import argparse
+import os
 import re
 import yaml
 
@@ -17,6 +18,7 @@ from jinja2 import Environment, FileSystemLoader
 
 
 class RenderContext(object):
+    SECTIONS_DIR = 'sections'
     DEFAULT_SECTION = 'items'
 
     def __init__(self, output_file, templates_dir, base_template, file_ending,
@@ -61,10 +63,11 @@ class RenderContext(object):
         for section_data in yaml_data['sections']:
             section_type = (self.DEFAULT_SECTION if not 'type' in section_data
                 else section_data['type'])
-            section_template = section_type + self._file_ending
+            section_template_name = os.path.join(
+                self.SECTIONS_DIR, section_type + self._file_ending)
 
             rendered_section = self._render_template(
-                section_template, section_data)
+                section_template_name, section_data)
             body += rendered_section + '\n\n'
 
         yaml_data['body'] = body
