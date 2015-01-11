@@ -113,9 +113,8 @@ MARKDOWN_CONTEXT = RenderContext(
     ]
 )
 
-def process_resume(context, yaml_data, should_skip, preview):
-    if should_skip:
-        return
+
+def process_resume(context, yaml_data, preview):
     rendered_resume = context.render_resume(yaml_data)
     if preview:
         print rendered_resume
@@ -143,8 +142,10 @@ def main():
         with open(yaml_file) as f:
             yaml_data.update(yaml.load(f))
 
-    process_resume(LATEX_CONTEXT, yaml_data, args.markdown, args.preview)
-    process_resume(MARKDOWN_CONTEXT, yaml_data, args.latex, args.preview)
+    if not args.markdown:
+        process_resume(LATEX_CONTEXT, yaml_data, args.preview)
+    if not args.latex:
+        process_resume(MARKDOWN_CONTEXT, yaml_data, args.preview)
 
 if __name__ == "__main__":
     main()
