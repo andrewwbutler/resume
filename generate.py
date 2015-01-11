@@ -138,18 +138,25 @@ def main():
     # Parse the command line arguments
     parser = argparse.ArgumentParser(description=
         'Generates LaTeX and Markdown resumes from data in YAML files.')
-    parser.add_argument('yamls', metavar='DATAFILE.yaml', nargs='+')
+    parser.add_argument('yamls', metavar='YAML_FILE', nargs='+',
+        help='the YAML files that contain the resume details, in order of '
+             'increasing precedence')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('-l', '--latex', action='store_true',
+        help='only generate LaTeX resume')
+    group.add_argument('-m', '--markdown', action='store_true',
+        help='only generate Markdown resume')
     args = parser.parse_args()
 
-    # Process in order so that the values from the last file take precedence
     resume_data = {}
     for yaml_file in args.yamls:
         with open(yaml_file) as f:
             resume_data.update(yaml.load(f))
 
-    # TODO: add optional flags
-    LATEX_CONTEXT.process_resume(resume_data)
-    MARKDOWN_CONTEXT.process_resume(resume_data)
+    if not args.markdown:
+        LATEX_CONTEXT.process_resume(resume_data)
+    if not args.latex:
+        MARKDOWN_CONTEXT.process_resume(resume_data)
 
 if __name__ == "__main__":
     main()
