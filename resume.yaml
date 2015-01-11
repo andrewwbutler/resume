@@ -4,6 +4,7 @@ lastname: Michael
 
 website: http://ellismichael.com
 github: emichael
+linkedin: rellismichael
 
 
 # Markdown details
@@ -26,14 +27,16 @@ sections:
     items:
       - date: Summer 2013
         role: Software Engineering Intern
-        employer: Google - Mountain View
+        employer: Google
+        location: Mountain View
         notes:
           - "Developed a full-text search module for Google's Course Builder, a Google App Engine application"
           - "Worked across the application's entire stack in CSS, HTML (with Jinja templating), Javascript, and Python"
 
       - date: Summer 2012
         role: Software Engineering Intern
-        employer: IBM - Austin
+        employer: IBM
+        location: Austin
         notes:
           - "Developed a tool to expedite the integration and build process for the Business Process Management (BPM) group using DB2, TeamCity, RTC, and BPM"
           - "Created RESTful APIs in Java"
@@ -62,6 +65,7 @@ sections:
 
   - name: Selected Coursework
     latextype: doubleitems
+    legend: (H) = Honors\ \ (G) = Graduate
     items:
       - Distributed Computing (G)
       - Programming Languages (H)
@@ -76,7 +80,7 @@ sections:
   - name: Skills
     items:
       - "Languages: Java, Python, C, C++, Haskell, HTML, CSS, JavaScript, PHP, XML/XSD, SQL, x86 Assembly, \\TeX"
-      - Agile, pair programming, extreme programming (XP) methodologies
+      - "Agile, pair programming, extreme programming (XP) methodologies"
 
   - name: Programming
     items:
@@ -91,30 +95,30 @@ sections:
 
   - name: Activities
     items:
-      - Dean's Scholars Council Member, 2011--2015
-      - University of Texas Quiz Bowl Team Member, 2011--2015
-      - Tutoring in the CS Department, 2012--2013
+      - Dean's Scholars Council Member, \textit{2011--2015}
+      - University of Texas Quiz Bowl Team Member, \textit{2011--2015}
+      - Tutoring in the CS Department, \textit{2012--2013}
 
-  - name: Interests
-    items:
-      - Distributed Computing
-      - Algorithms and Complexity
-      - Online Education
+  # - name: Interests
+  #   items:
+  #     - Distributed Computing
+  #     - Algorithms and Complexity
+  #     - Online Education
 
   - name: Selected Honors
     items:
       ## Scholarships
         # UEPS
-      - Distinguished College Scholar in the College of Natural Sciences at UT Austin, 2012--2014
-      - Frances Rather Seybold and Frances Randolph Rather Seybold Endowed Presidential Scholarship, 2014
-      - Eva Stevenson Woods Endowed Presidential Scholarship, 2014
-      - Michelle K. Brock and Sophia and G.W. Brock Endowed Presidential Scholarship, 2014 and 2013
-      - Kevin E. Underhill Memorial Endowed Presidential Scholarship, 2014 and 2013
-      - Chevron Scholar, 2014 annd 2012
-      - Ralph R. Nelson Endowed Presidential Scholarship, 2013
-      - Bettie Johnson Halsell Endowed Presidential Scholarship in Liberal Arts, 2013
-      - Renee Wolfe Zelman and Norman Zelman Endowed Scholarship, 2012
-      - Joe P. Liberty Endowed Scholarship in Plan II, 2012
+      - Distinguished College Scholar in the College of Natural Sciences at UT Austin, \textit{2012--2014}
+      - Frances Rather Seybold and Frances Randolph Rather Seybold Endowed Presidential Scholarship, \textit{2014}
+      - Eva Stevenson Woods Endowed Presidential Scholarship, \textit{2014}
+      - Michelle K. Brock and Sophia and G.W. Brock Endowed Presidential Scholarship, \textit{2014 and 2013}
+      - Kevin E. Underhill Memorial Endowed Presidential Scholarship, \textit{2014 and 2013}
+      - Chevron Scholar, \textit{2014 and 2012}
+      - Ralph R. Nelson Endowed Presidential Scholarship, \textit{2013}
+      - Bettie Johnson Halsell Endowed Presidential Scholarship in Liberal Arts, \textit{2013}
+      - Renee Wolfe Zelman and Norman Zelman Endowed Scholarship, \textit{2012}
+      - Joe P. Liberty Endowed Scholarship in Plan II, \textit{2012}
       # TODO: include info about the book award
-      - College of Natural Sciences Book Award, Fall 2013
+      - College of Natural Sciences Book Award, \textit{Fall 2013}
 ...

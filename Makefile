@@ -6,7 +6,7 @@ BLOG_DIR=$(HOME)/ellismichael.com
 
 TEMPLATES=$(shell find templates -type f)
 
-BUILD_DIR=build/
+BUILD_DIR=build
 TEX=$(BUILD_DIR)/resume.tex
 PDF=$(BUILD_DIR)/resume.pdf
 MD=$(BUILD_DIR)/resume.md

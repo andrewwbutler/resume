@@ -1,16 +1,14 @@
 ~< extends "section.tex" >~
 ~< block body >~
   ~< for r in items >~
-    \cventry
-      {<< r.date >>}
-      {<< r.topic >>}
-      {}{}{}{}
-
+    \vspace{-\baselineskip}
+    \cventry{<< r.date >>}{<< r.topic >>}{}{}{}{}
     \begin{itemize}
       ~< for note in r.notes >~
         \item{<< note >>}
       ~< endfor >~
     \end{itemize}
-
+    \vspace{10pt}
   ~< endfor >~
+  \vspace{-10pt}
 ~< endblock body >~

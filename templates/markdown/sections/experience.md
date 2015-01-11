@@ -1,7 +1,7 @@
 {% extends "section.md" %}
 {% block body %}
 {% for job in items %}
-**{{ job.employer }}** - _{{ job.role }}_ - {{ job.date }}
+**{{ job.employer }}, {{ job.location }}** - _{{ job.role }}_ - {{ job.date }}
 
 {% for note in job.notes %}
   - {{ note }}
