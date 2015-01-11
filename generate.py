@@ -50,14 +50,10 @@ class RenderContext(object):
 
         return yaml_data
 
-    def render_template(self, template_name, yaml_data):
+    def _render_template(self, template_name, yaml_data):
         return self._jinja_env.get_template(template_name).render(yaml_data)
 
-    def write_to_outfile(self, output_data):
-        with open(self._output_file, 'w') as out:
-            out.write(output_data)
-
-    def process_resume(self, yaml_data):
+    def render_resume(self, yaml_data):
         # Make the replacements first on the yaml_data
         yaml_data = self.make_replacements(yaml_data)
 
@@ -73,30 +69,17 @@ class RenderContext(object):
             except TemplateNotFound:
                 section_template = self.DEFAULT_SECTION + self._file_ending
 
-            # TODO: fix tablist and groups
-            if section_type == 'tablist':
-                groups = []
-                items_temp = list(section_data['items'])
-                while len(items_temp):
-                    g = []
-                    for _ in range(2):
-                        try:
-                            g.append(items_temp.pop(0))
-                        except IndexError:
-                            break
-                    groups.append(tuple(g))
-
-                section_data['groups'] = groups
-
-            rendered_section = self.render_template(
+            rendered_section = self._render_template(
                 section_template, section_data)
             body += rendered_section + '\n\n'
 
         yaml_data['body'] = body
         yaml_data['today'] = date.today().strftime("%B %d, %Y")
-        rendered_resume = self.render_template(self._base_template, yaml_data)
+        return self._render_template(self._base_template, yaml_data)
 
-        self.write_to_outfile(rendered_resume)
+    def write_to_outfile(self, output_data):
+        with open(self._output_file, 'w') as out:
+            out.write(output_data)
 
 
 LATEX_CONTEXT = RenderContext(
@@ -133,6 +116,14 @@ MARKDOWN_CONTEXT = RenderContext(
     ]
 )
 
+def process_resume(context, yaml_data, should_skip, preview):
+    if should_skip:
+        return
+    rendered_resume = context.render_resume(yaml_data)
+    if preview:
+        print rendered_resume
+    else:
+        context.write_to_outfile(rendered_resume)
 
 def main():
     # Parse the command line arguments
@@ -141,6 +132,8 @@ def main():
     parser.add_argument('yamls', metavar='YAML_FILE', nargs='+',
         help='the YAML files that contain the resume details, in order of '
              'increasing precedence')
+    parser.add_argument('-p', '--preview', action='store_true',
+        help='prints generated resumes to stdout instead of writing to file')
     group = parser.add_mutually_exclusive_group()
     group.add_argument('-l', '--latex', action='store_true',
         help='only generate LaTeX resume')
@@ -148,15 +141,13 @@ def main():
         help='only generate Markdown resume')
     args = parser.parse_args()
 
-    resume_data = {}
+    yaml_data = {}
     for yaml_file in args.yamls:
         with open(yaml_file) as f:
-            resume_data.update(yaml.load(f))
+            yaml_data.update(yaml.load(f))
 
-    if not args.markdown:
-        LATEX_CONTEXT.process_resume(resume_data)
-    if not args.latex:
-        MARKDOWN_CONTEXT.process_resume(resume_data)
+    process_resume(LATEX_CONTEXT, yaml_data, args.markdown, args.preview)
+    process_resume(MARKDOWN_CONTEXT, yaml_data, args.latex, args.preview)
 
 if __name__ == "__main__":
     main()

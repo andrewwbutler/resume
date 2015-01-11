@@ -61,8 +61,6 @@ sections:
           - I worked in the Autonomous Vehicles FRI Stream using Robot Operating System and implemented a SLAM system for use with the vehicle
 
   - name: Selected Coursework
-    type: tablist
-    legend: (H) = Honors\ \ (G) = Graduate
     items:
       - Distributed Computing (G)
       - Programming Languages (H)
