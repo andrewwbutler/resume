@@ -1,8 +1,10 @@
 ---
-firstname: Ellis
-lastname: Michael
+name:
+  first: Ellis
+  last: Michael
 
-website: http://ellismichael.com
+
+website: ellismichael.com
 github: emichael
 linkedin: rellismichael
 
