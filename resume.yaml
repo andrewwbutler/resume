@@ -41,7 +41,7 @@ sections:
           - "Developed a tool to expedite the integration and build process for the Business Process Management (BPM) group using DB2, TeamCity, RTC, and BPM"
           - "Created RESTful APIs in Java"
 
-      - date: 2012 - 2015
+      - date: 2012--2015
         role: Various Positions
         employer: University of Texas at Austin
         notes:
@@ -53,15 +53,19 @@ sections:
   - name: Research Experience
     type: research
     items:
-      - date: Spring 2014 - Present
+      - date: Spring 2014--Present
         topic: Distributed Computing
+        advisor: Lorenzo Alvisi
         notes:
-          - I am working with Prof. Lorenzo Alvisi in the area of Distributed Computing
+          - "Implementing system outlined in Kapritsos and Junqueria ``Scalable agreement: Towards ordering as a service'' to improve the performance of the previous prototype and demonstrate the scalability of the protocol"
+          - "Undertaking an original research project focused on the connection between several recent publications including ``Dynamic atomic storage without consensus'' and ``Generalized lattice agreement,'' proving a quasi-equivalence between the two problems in order to better understand the difficulty that the dynamic setting imposes"
+          - "This research will culminate in my honors thesis"
 
       - date: Spring 2012
-        topic: Autonomous Vehicles Stream - Freshman Research Initiative
+        topic: Autonomous Vehicles Stream --- Freshman Research Initiative
         notes:
-          - I worked in the Autonomous Vehicles FRI Stream using Robot Operating System and implemented a SLAM system for use with the vehicle
+          - Developed applications using the Robot Operating System
+          - Partnered in the implementation of a SLAM system for use with the UT-Austin vehicle
 
   - name: Selected Coursework
     latextype: doubleitems
@@ -95,15 +99,11 @@ sections:
 
   - name: Activities
     items:
+      - Turing Scholars Students' Association, \textit{2011--2015}
       - Dean's Scholars Council Member, \textit{2011--2015}
       - University of Texas Quiz Bowl Team Member, \textit{2011--2015}
       - Tutoring in the CS Department, \textit{2012--2013}
-
-  # - name: Interests
-  #   items:
-  #     - Distributed Computing
-  #     - Algorithms and Complexity
-  #     - Online Education
+      - Plan II Chamber Music Society -- Bassoonist, \textit{2011--2012}
 
   - name: Selected Honors
     subsections:

@@ -1,14 +1,23 @@
 ~< extends "section.tex" >~
 ~< block body >~
   ~< for job in items >~
-    \cventry{<< job.date >>}{<< job.role >>}{<< job.employer >>}{<< job.location >>}{}{}
-    ~< if job.notes >~
-      \begin{itemize}
-        ~< for note in job.notes >~
-          \item{<< note >>}
-        ~< endfor >~
-      \end{itemize}
-    ~< endif >~
+    \begin{samepage}
+      \cventry
+        {<< job.date >>}
+        {<< job.role >>}
+        {<< job.employer >>}
+        {<< job.location >>}
+        {}
+        { % TODO: make sure this doesn't cause an extra space when there aren't notes
+        ~< if job.notes >~
+          \begin{itemize}
+            ~< for note in job.notes >~
+              \item{<< note >>}
+            ~< endfor >~
+          \end{itemize}
+        ~< endif >~
+        }
+    \end{samepage}
     \vspace{10pt}
   ~< endfor >~
   \vspace{-10pt}

@@ -1,13 +1,21 @@
 ~< extends "section.tex" >~
 ~< block body >~
-  ~< for r in items >~
-    \vspace{-\baselineskip}
-    \cventry{<< r.date >>}{<< r.topic >>}{}{}{}{}
-    \begin{itemize}
-      ~< for note in r.notes >~
-        \item{<< note >>}
-      ~< endfor >~
-    \end{itemize}
+  ~< for research in items >~
+    \begin{samepage}
+      \cventry
+        {<< research.date >>}
+        {~< if research.advisor >~Advisor: << research.advisor >>~< endif >~}
+        {<< research.topic >>}
+        {}
+        {}
+        {
+          \begin{itemize}
+            ~< for note in research.notes >~
+              \item{<< note >>}
+            ~< endfor >~
+          \end{itemize}
+        }
+    \end{samepage}
     \vspace{10pt}
   ~< endfor >~
   \vspace{-10pt}

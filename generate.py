@@ -130,11 +130,13 @@ MARKDOWN_CONTEXT = RenderContext(
         lstrip_blocks=True
     ),
     [
-        (r'\\ ', '&nbsp;'),                # LaTeX spaces to &nbsp;
-        (r'\\textbf{(.*)}', r'**\1**'),    # Bold text
-        (r'\\textit{(.*)}', r'*\1*'),      # Italic text
+        (r'\\ ', '&nbsp;'),                # spaces
+        (r'\\textbf{([^}]*)}', r'**\1**'), # bold text
+        (r'\\textit{([^}]*)}', r'*\1*'),   # italic text
         (r'\\TeX', r'TeX'),                # \TeX to boring old TeX
-        ('--', '&ndash;')                  # -- to &ndash;
+        ('---', '&mdash;'),                # em dash
+        ('--', '&ndash;'),                 # en dash
+        (r'``([^\']*)\'\'', r'"\1"'),      # quotes
     ]
 )
 

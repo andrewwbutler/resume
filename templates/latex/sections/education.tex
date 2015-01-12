@@ -1,12 +1,14 @@
 ~< extends "section.tex" >~
 ~< block body >~
   ~< for school in items >~
-    \cventry
-      {<< school.date >>}
-      {<< school.major >>}
-      {<< school.school >>}
-      {}
-      {\textit{<< school.gpa >>}}
-      {}
+    \begin{samepage}
+      \cventry
+        {<< school.date >>}
+        {<< school.major >>}
+        {<< school.school >>}
+        {}
+        {\textit{GPA: << school.gpa >>}}
+        {}
+    \end{samepage}
   ~< endfor >~
 ~< endblock body >~
