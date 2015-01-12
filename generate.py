@@ -133,7 +133,8 @@ MARKDOWN_CONTEXT = RenderContext(
         (r'\\ ', '&nbsp;'),                # LaTeX spaces to &nbsp;
         (r'\\textbf{(.*)}', r'**\1**'),    # Bold text
         (r'\\textit{(.*)}', r'*\1*'),      # Italic text
-        (r'\\TeX', r'TeX')                 # \TeX to boring old TeX
+        (r'\\TeX', r'TeX'),                # \TeX to boring old TeX
+        ('--', '&ndash;')                  # -- to &ndash;
     ]
 )
 

@@ -18,7 +18,7 @@ sections:
     items:
       - date: May 2015
         school: University of Texas at Austin
-        major: B.S. Computer Science Honors (\textbf{Turing Scholars}), B.A. Plan II Honors
+        major: B.S. Computer Science Honors, B.A. Plan II Honors
         gpa: "4.0"
 
 
@@ -109,14 +109,20 @@ sections:
     subsections:
       - name: Honors Programs
         subitems:
-          - Dean's Scholars Honors Program
-          - Turing Scholars Honors Program
-          - Plan II Honors
+          - name: Dean's Scholars Honors Program
+            description: highly-selective research-oriented honors program in the College of Natural Sciences, accepts approximately 40 students per year out of more than 1000 applicants
+          - name: Turing Scholars Honors Program
+            description: highly-selective honors program for computer science students
+          - name: Plan II Honors
+            description: highly-selective interdisciplinary honors program, contains students across all schools and majors, accepts approximately 175 students per year out of more than 1500 applicants
 
       - name: Awards
         subitems:
           - Distinguished College Scholar in the College of Natural Sciences, \textit{2012--2014}
-          - College of Natural Science Book Award | Graduate Distributed Computing, \textit{Fall 2013}
+          - name: College of Natural Science Book Award | Graduate Distributed Computing, \textit{Fall 2013}
+            notes:
+              - Recognizes outstanding academic achievement by an undergraduate in a course
+              - 20 awarded per year in the entire college comprised of over 13,000 undergraduate students
 
       - name: Scholarships
         subitems:
@@ -131,6 +137,5 @@ sections:
           - Bettie Johnson Halsell Endowed Presidential Scholarship in Liberal Arts, \textit{2013}
           - Renee Wolfe Zelman and Norman Zelman Endowed Scholarship, \textit{2012}
           - Joe P. Liberty Endowed Scholarship in Plan II, \textit{2012}
-          # TODO: include info about the book award
           - College of Natural Sciences Book Award, \textit{Fall 2013}
 ...
