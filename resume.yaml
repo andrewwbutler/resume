@@ -106,19 +106,31 @@ sections:
   #     - Online Education
 
   - name: Selected Honors
-    items:
-      ## Scholarships
-        # UEPS
-      - Distinguished College Scholar in the College of Natural Sciences at UT Austin, \textit{2012--2014}
-      - Frances Rather Seybold and Frances Randolph Rather Seybold Endowed Presidential Scholarship, \textit{2014}
-      - Eva Stevenson Woods Endowed Presidential Scholarship, \textit{2014}
-      - Michelle K. Brock and Sophia and G.W. Brock Endowed Presidential Scholarship, \textit{2014 and 2013}
-      - Kevin E. Underhill Memorial Endowed Presidential Scholarship, \textit{2014 and 2013}
-      - Chevron Scholar, \textit{2014 and 2012}
-      - Ralph R. Nelson Endowed Presidential Scholarship, \textit{2013}
-      - Bettie Johnson Halsell Endowed Presidential Scholarship in Liberal Arts, \textit{2013}
-      - Renee Wolfe Zelman and Norman Zelman Endowed Scholarship, \textit{2012}
-      - Joe P. Liberty Endowed Scholarship in Plan II, \textit{2012}
-      # TODO: include info about the book award
-      - College of Natural Sciences Book Award, \textit{Fall 2013}
+    subsections:
+      - name: Honors Programs
+        subitems:
+          - Dean's Scholars Honors Program
+          - Turing Scholars Honors Program
+          - Plan II Honors
+
+      - name: Awards
+        subitems:
+          - Distinguished College Scholar in the College of Natural Sciences, \textit{2012--2014}
+          - College of Natural Science Book Award | Graduate Distributed Computing, \textit{Fall 2013}
+
+      - name: Scholarships
+        subitems:
+            # UEPS
+          - Distinguished College Scholar in the College of Natural Sciences at UT Austin, \textit{2012--2014}
+          - Frances Rather Seybold and Frances Randolph Rather Seybold Endowed Presidential Scholarship, \textit{2014}
+          - Eva Stevenson Woods Endowed Presidential Scholarship, \textit{2014}
+          - Michelle K. Brock and Sophia and G.W. Brock Endowed Presidential Scholarship, \textit{2014 and 2013}
+          - Kevin E. Underhill Memorial Endowed Presidential Scholarship, \textit{2014 and 2013}
+          - Chevron Scholar, \textit{2014 and 2012}
+          - Ralph R. Nelson Endowed Presidential Scholarship, \textit{2013}
+          - Bettie Johnson Halsell Endowed Presidential Scholarship in Liberal Arts, \textit{2013}
+          - Renee Wolfe Zelman and Norman Zelman Endowed Scholarship, \textit{2012}
+          - Joe P. Liberty Endowed Scholarship in Plan II, \textit{2012}
+          # TODO: include info about the book award
+          - College of Natural Sciences Book Award, \textit{Fall 2013}
 ...
