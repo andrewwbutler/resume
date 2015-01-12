@@ -10,7 +10,7 @@
 {% block body %}
 {% if subsections %}
 {% for subs in subsections %}
-####{{ subs.name }}####
+#### {{ subs.name }} ####
 {% for item in subs.subitems %}{{ listitem(item) }}{% endfor %}
 
 {% endfor %}
