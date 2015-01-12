@@ -172,7 +172,7 @@ def process_resume(context, yaml_data, preview):
 def main():
     # Parse the command line arguments
     parser = argparse.ArgumentParser(description=
-        'Generates LaTeX and Markdown resumes from data in YAML files.')
+        'Generates HTML, LaTeX, and Markdown resumes from data in YAML files.')
     parser.add_argument('yamls', metavar='YAML_FILE', nargs='+',
         help='the YAML files that contain the resume details, in order of '
              'increasing precedence')
