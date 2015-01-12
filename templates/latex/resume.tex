@@ -7,9 +7,19 @@
 \usepackage[scale=0.75]{geometry}
 
 \name{<< name.first >>}{<< name.last >>}
-~<if address >~\address{<< address.street >>}{<< address.city >>, << address.state >> << address.zip >>}{<< address.country >>}~< endif >~
-~<if mobile >~\phone[mobile]{<< mobile >>}~< endif >~
-~<if email >~\email{<< email >>}~< endif >~
+
+~<if address >~
+  \address{<< address.street >>}{<< address.city >>, << address.state >> << address.zip >>}{<< address.country >>}
+~< endif >~
+
+~<if mobile >~
+  \phone[mobile]{<< mobile >>}
+~< endif >~
+
+~<if email >~
+  \email{<< email >>}
+~< endif >~
+
 \homepage{<< website >>}
 \social[linkedin]{<< linkedin >>}
 \social[github]{<< github >>}

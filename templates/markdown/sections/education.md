@@ -1,4 +1,5 @@
 {% extends "section.md" %}
+
 {% block body %}
 {% for school in items %}
 **{{ school.school }}** - _{{ school.date }}_  

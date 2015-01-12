@@ -1,10 +1,11 @@
 {% extends "section.md" %}
-{% block body %}
-{% for job in items %}
-**{{ job.employer }}{% if job.location %}, {{ job.location }}{% endif %}** - _{{ job.about }}_ - {{ job.date }}
 
-{% for note in job.notes %}
-  - {{ note }}
+{% block body %}
+{% for item in items %}
+**{{ item.employer }}{% if item.location %}, {{ item.location }}{% endif %}** - _{{ item.about }}_ - {{ item.date }}
+
+{% for note in item.notes %}
+  - {{ note | wordwrap(wrapstring='\n    ') }}
 {% endfor %}
 
 {% endfor %}

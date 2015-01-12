@@ -9,11 +9,11 @@
         {% elif item.topic %}
           {{ item.topic }}
         {% endif %}
-        </strong> -
-        {% if item.about %}
-          <em>{{ item.about }}</em> -
-        {% endif %}
-        {{ item.date }}
+      </strong> -
+      {% if item.about %}
+        <em>{{ item.about }}</em> -
+      {% endif %}
+      {{ item.date }}
     </p>
     <ul>
       {% for note in item.notes %}

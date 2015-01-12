@@ -95,11 +95,12 @@ class RenderContext(object):
 
             rendered_section = self._render_template(
                 section_template_name, section_data)
-            body += rendered_section + '\n\n'
+            body += rendered_section.rstrip() + '\n\n\n'
 
         yaml_data['body'] = body
         yaml_data['today'] = date.today().strftime("%B %d, %Y")
-        return self._render_template(self._base_template, yaml_data)
+        return self._render_template(
+            self._base_template, yaml_data).rstrip() + '\n'
 
     def write_to_outfile(self, output_data):
         with open(self._output_file, 'w') as out:
@@ -130,13 +131,13 @@ MARKDOWN_CONTEXT = RenderContext(
         lstrip_blocks=True
     ),
     [
-        (r'\\ ', '&nbsp;'),                # spaces
+        (r'\\ ', ' '),                     # spaces
         (r'\\textbf{([^}]*)}', r'**\1**'), # bold text
         (r'\\textit{([^}]*)}', r'*\1*'),   # italic text
         (r'\\LaTeX', 'LaTeX'),             # \LaTeX to boring old LaTeX
         (r'\\TeX', 'TeX'),                 # \TeX to boring old TeX
-        ('---', '&mdash;'),                # em dash
-        ('--', '&ndash;'),                 # en dash
+        ('---', '-'),                      # em dash
+        ('--', '-'),                       # en dash
         (r'``([^\']*)\'\'', r'"\1"'),      # quotes
     ]
 )
@@ -191,12 +192,18 @@ def main():
         with open(yaml_file) as f:
             yaml_data.update(yaml.load(f))
 
-    if not (args.html or args.markdown):
-        process_resume(LATEX_CONTEXT, yaml_data, args.preview)
-    if not (args.html or args.latex):
-        process_resume(MARKDOWN_CONTEXT, yaml_data, args.preview)
-    if not (args.latex or args.markdown):
+    if args.html or args.latex or args.markdown:
+        if args.html:
+            process_resume(HTML_CONTEXT, yaml_data, args.preview)
+        elif args.latex:
+            process_resume(LATEX_CONTEXT, yaml_data, args.preview)
+        elif args.markdown:
+            process_resume(MARKDOWN_CONTEXT, yaml_data, args.preview)
+    else:
         process_resume(HTML_CONTEXT, yaml_data, args.preview)
+        process_resume(LATEX_CONTEXT, yaml_data, args.preview)
+        process_resume(MARKDOWN_CONTEXT, yaml_data, args.preview)
+
 
 if __name__ == "__main__":
     main()

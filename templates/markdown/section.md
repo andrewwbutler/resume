@@ -1,10 +1,9 @@
-<div style="position: relative;">
-  {% if legend %}
-    <div style="position: absolute; bottom: 0; right: 0;">{{ legend }}</div>
-  {% endif %}
-  <h3>{{ name }}</h2>
-</div>
+### {{ name }} ###
 ---
+{% if legend %}
+{{ legend }}
+
+{% endif %}
 {% block body %}
 {{ data }}
 {% endblock body %}
