@@ -26,7 +26,7 @@ sections:
     type: experience
     items:
       - date: Summer 2013
-        role: Software Engineering Intern
+        about: Software Engineering Intern
         employer: Google
         location: Mountain View
         notes:
@@ -34,7 +34,7 @@ sections:
           - "Worked across the application's entire stack in CSS, HTML (with Jinja templating), Javascript, and Python"
 
       - date: Summer 2012
-        role: Software Engineering Intern
+        about: Software Engineering Intern
         employer: IBM
         location: Austin
         notes:
@@ -42,7 +42,7 @@ sections:
           - "Created RESTful APIs in Java"
 
       - date: 2012--2015
-        role: Various Positions
+        about: Various Positions
         employer: University of Texas at Austin
         notes:
           - "Worked for Quest, UT's online assessment system"
@@ -51,11 +51,12 @@ sections:
 
 
   - name: Research Experience
-    type: research
+    type: experience
+    markdowntype: research
     items:
       - date: Spring 2014--Present
         topic: Distributed Computing
-        advisor: Lorenzo Alvisi
+        about: "Advisor: Lorenzo Alvisi"
         notes:
           - "Implementing system outlined in Kapritsos and Junqueria ``Scalable agreement: Towards ordering as a service'' to improve the performance of the previous prototype and demonstrate the scalability of the protocol"
           - "Undertaking an original research project focused on the connection between several recent publications including ``Dynamic atomic storage without consensus'' and ``Generalized lattice agreement,'' proving a quasi-equivalence between the two problems in order to better understand the difficulty that the dynamic setting imposes"
@@ -66,6 +67,7 @@ sections:
         notes:
           - Developed applications using the Robot Operating System
           - Partnered in the implementation of a SLAM system for use with the UT-Austin vehicle
+
 
   - name: Selected Coursework
     latextype: doubleitems
@@ -81,21 +83,26 @@ sections:
       - Data Structures (H)
       - Analysis of Programs (H)
 
+
   - name: Skills
     items:
-      - "Languages: Java, Python, C, C++, Haskell, HTML, CSS, JavaScript, PHP, XML/XSD, SQL, x86 Assembly, \\TeX"
+      - "\\textbf{Languages}: Java, Python, C, C++, Haskell, Scala, Prolog, HTML, CSS, JavaScript, PHP, XML/XSD, SQL, x86 Assembly, \\TeX, Bash, R"
       - "Agile, pair programming, extreme programming (XP) methodologies"
+
 
   - name: Programming
     items:
-      - Implemented in Java classic distributed protocols including Three-phase Commit, Paxos, and Bayou
+      - Implemented in Java several classic distributed systems protocols, including Paxos and Three-Phase Commit
       - Built significant pieces of the JOS operating system including a memory manager, scheduler, file system, and network driver
+      - As a personal project, developed a Chrome Extension to automatically inject MathJax into a webpage to render \LaTeX\ in forums and messaging and email applications
+      - Created an open-source Python package to automatically generate and send newsletters for the Dean's Scholars Honors Program
+      - Completed Berkeley's Pac-Man artificial intelligence projects
+      - Implemented Tetris AI optimized with a genetic algorithm
+      - Partnered in the development of a SLAM implementation in ROS for the UT-Austin robotic vehicle
       - Implemented parts of a pipelined processor
       - Optimized C and assembly language code using code motion, blocking, loop unrolling, branch prediction
-      - Completed Berkeley's Pac-Man artificial intelligence projects
-      - Partnered in the development of a SLAM implementation in ROS for the UT-Austin robotic vehicle
-      - Implemented Tetris AI optimized with a genetic algorithm
       - Created a web crawler and search engine with relevancy prediction
+
 
   - name: Activities
     items:
@@ -104,6 +111,7 @@ sections:
       - University of Texas Quiz Bowl Team Member, \textit{2011--2015}
       - Tutoring in the CS Department, \textit{2012--2013}
       - Plan II Chamber Music Society -- Bassoonist, \textit{2011--2012}
+
 
   - name: Selected Honors
     subsections:
@@ -126,8 +134,6 @@ sections:
 
       - name: Scholarships
         subitems:
-            # UEPS
-          - Distinguished College Scholar in the College of Natural Sciences at UT Austin, \textit{2012--2014}
           - Frances Rather Seybold and Frances Randolph Rather Seybold Endowed Presidential Scholarship, \textit{2014}
           - Eva Stevenson Woods Endowed Presidential Scholarship, \textit{2014}
           - Michelle K. Brock and Sophia and G.W. Brock Endowed Presidential Scholarship, \textit{2014 and 2013}
@@ -137,5 +143,4 @@ sections:
           - Bettie Johnson Halsell Endowed Presidential Scholarship in Liberal Arts, \textit{2013}
           - Renee Wolfe Zelman and Norman Zelman Endowed Scholarship, \textit{2012}
           - Joe P. Liberty Endowed Scholarship in Plan II, \textit{2012}
-          - College of Natural Sciences Book Award, \textit{Fall 2013}
 ...

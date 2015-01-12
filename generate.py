@@ -133,7 +133,8 @@ MARKDOWN_CONTEXT = RenderContext(
         (r'\\ ', '&nbsp;'),                # spaces
         (r'\\textbf{([^}]*)}', r'**\1**'), # bold text
         (r'\\textit{([^}]*)}', r'*\1*'),   # italic text
-        (r'\\TeX', r'TeX'),                # \TeX to boring old TeX
+        (r'\\LaTeX', 'LaTeX'),             # \LaTeX to boring old LaTeC
+        (r'\\TeX', 'TeX'),                 # \TeX to boring old TeX
         ('---', '&mdash;'),                # em dash
         ('--', '&ndash;'),                 # en dash
         (r'``([^\']*)\'\'', r'"\1"'),      # quotes
