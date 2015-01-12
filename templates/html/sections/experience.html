@@ -1,0 +1,24 @@
+{% extends "section.html" %}
+
+{% block body %}
+  {% for item in items %}
+    <p>
+      <strong>
+        {% if item.employer %}
+          {{ item.employer }}{% if item.location %}, {{ item.location }}{% endif %}
+        {% elif item.topic %}
+          {{ item.topic }}
+        {% endif %}
+        </strong> -
+        {% if item.about %}
+          <em>{{ item.about }}</em> -
+        {% endif %}
+        {{ item.date }}
+    </p>
+    <ul>
+      {% for note in item.notes %}
+        <li>{{ note }}</li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+{% endblock body %}

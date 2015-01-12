@@ -133,11 +133,30 @@ MARKDOWN_CONTEXT = RenderContext(
         (r'\\ ', '&nbsp;'),                # spaces
         (r'\\textbf{([^}]*)}', r'**\1**'), # bold text
         (r'\\textit{([^}]*)}', r'*\1*'),   # italic text
-        (r'\\LaTeX', 'LaTeX'),             # \LaTeX to boring old LaTeC
+        (r'\\LaTeX', 'LaTeX'),             # \LaTeX to boring old LaTeX
         (r'\\TeX', 'TeX'),                 # \TeX to boring old TeX
         ('---', '&mdash;'),                # em dash
         ('--', '&ndash;'),                 # en dash
         (r'``([^\']*)\'\'', r'"\1"'),      # quotes
+    ]
+)
+
+HTML_CONTEXT = RenderContext(
+    'html',
+    '.html',
+    dict(
+        trim_blocks=True,
+        lstrip_blocks=True
+    ),
+    [
+        (r'\\ ', '&nbsp;'),                             # spaces
+        (r'\\textbf{([^}]*)}', r'<strong>\1</strong>'), # bold
+        (r'\\textit{([^}]*)}', r'<em>\1</em>'),         # italic
+        (r'\\LaTeX', 'LaTeX'),                          # \LaTeX
+        (r'\\TeX', 'TeX'),                              # \TeX
+        ('---', '&mdash;'),                             # em dash
+        ('--', '&ndash;'),                              # en dash
+        (r'``([^\']*)\'\'', r'"\1"'),                   # quotes
     ]
 )
 
@@ -159,6 +178,8 @@ def main():
     parser.add_argument('-p', '--preview', action='store_true',
         help='prints generated resumes to stdout instead of writing to file')
     group = parser.add_mutually_exclusive_group()
+    group.add_argument('-t', '--html', action='store_true',
+        help='only generate HTML resume')
     group.add_argument('-l', '--latex', action='store_true',
         help='only generate LaTeX resume')
     group.add_argument('-m', '--markdown', action='store_true',
@@ -170,10 +191,12 @@ def main():
         with open(yaml_file) as f:
             yaml_data.update(yaml.load(f))
 
-    if not args.markdown:
+    if not (args.html or args.markdown):
         process_resume(LATEX_CONTEXT, yaml_data, args.preview)
-    if not args.latex:
+    if not (args.html or args.latex):
         process_resume(MARKDOWN_CONTEXT, yaml_data, args.preview)
+    if not (args.latex or args.markdown):
+        process_resume(HTML_CONTEXT, yaml_data, args.preview)
 
 if __name__ == "__main__":
     main()

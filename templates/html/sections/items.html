@@ -1,0 +1,35 @@
+{% extends "section.html" %}
+
+{% macro listitem(item) %}
+  {% if item.description %}
+    <li><strong>{{ item.name }}</strong>: {{ item.description }}</li>
+  {% elif item.notes %}
+    <li>{{ item.name }}</li>
+    <ul>
+      {% for note in item.notes %}
+        <li>{{ note }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <li>{{ item }}</li>
+  {% endif %}
+{% endmacro %}
+
+{% block body %}
+  {% if subsections %}
+    {% for subs in subsections %}
+      <h4>{{ subs.name }}</h4>
+      <ul>
+        {% for item in subs.subitems %}
+          {{ listitem(item) }}
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  {% else %}
+    <ul>
+      {% for item in items %}
+        {{ listitem(item) }}
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock body %}

@@ -10,6 +10,7 @@ BUILD_DIR=build
 TEX=$(BUILD_DIR)/resume.tex
 PDF=$(BUILD_DIR)/resume.pdf
 MD=$(BUILD_DIR)/resume.md
+HTML=$(BUILD_DIR)/resume.html
 
 ifneq ("$(wildcard resume.hidden.yaml)","")
 	YAML_FILES = resume.yaml resume.hidden.yaml
@@ -27,7 +28,7 @@ $(BUILD_DIR):
 public: $(BUILD_DIR) $(TEMPLATES) $(YAML_FILES) generate.py
 	./generate.py resume.yaml
 
-$(TEX) $(MD): $(BUILD_DIR) $(TEMPLATES) $(YAML_FILES) generate.py
+$(TEX) $(MD) $(HTML): $(BUILD_DIR) $(TEMPLATES) $(YAML_FILES) generate.py
 	./generate.py $(YAML_FILES)
 
 $(PDF): $(TEX)
@@ -37,9 +38,9 @@ $(PDF): $(TEX)
 viewpdf: $(PDF)
 	gnome-open $(PDF)
 
-stage: $(PDF) $(MD)
+stage: $(PDF) $(HTML)
 	cp $(PDF) $(BLOG_DIR)/assets/resume.pdf
-	cp $(MD) $(BLOG_DIR)/resume.md
+	cp $(HTML) $(BLOG_DIR)/resume.html
 
 jekyll: stage
 	cd $(BLOG_DIR) && jekyll server
