@@ -5,7 +5,7 @@
 **{{ item.employer }}{% if item.location %}, {{ item.location }}{% endif %}** - _{{ item.about }}_ - {{ item.date }}
 
 {% for note in item.notes %}
-  - {{ note | wordwrap(wrapstring='\n    ') }}
+  - {{ note | wordwrap(width=76, wrapstring='\n    ') }}
 {% endfor %}
 
 {% endfor %}

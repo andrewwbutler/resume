@@ -7,7 +7,7 @@
 {% endif %}
 
 {% for note in r.notes %}
-  - {{ note | wordwrap(wrapstring='\n    ') }}
+  - {{ note | wordwrap(width=76, wrapstring='\n    ') }}
 {% endfor %}
 
 {% endfor %}
