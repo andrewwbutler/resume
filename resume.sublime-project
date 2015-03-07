@@ -2,11 +2,12 @@
   "folders":
   [
     {
-      "path": "/home/emichael/resume",
+      "path": "./",
       "folder_exclude_patterns": [
         "build"
       ],
       "file_exclude_patterns": [
+        "*.sublime-project",
         "*.sublime-workspace",
         "*.aux",
         "*.log",
