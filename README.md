@@ -17,13 +17,7 @@ The dependencies are included in `requirements.txt` and can be installed using
 
 `make` will call generate.py and build the LaTeX documents with latexmk.
 
-The Makefile can also:
-
-1. Stage to my website with `make stage`
-2. Start a local jekyll server of my website with updated documents with
-   `make jekyll` 
-3. Push updated documents to my website with `make push`
-4. Open the compiled PDF with `make viewpdf`
+The Makefile can also open the compiled PDF with `make viewpdf`.
 
 
 What to Modify
@@ -31,8 +25,7 @@ What to Modify
 All that you need to modify is `resume.yaml` (and of course the image file to be
 included in the top right corner of the resume). You should also look through
 the template files to make sure there isn't any special-case code that needs to
-be modified. If you want to use the `Makefile` with your jekyll website, you'll
-need to modify the `Makefile` slightly.
+be modified.
 
 Of course, you'll probably want to modify the templates as well. That is left as
 an exercise for the reader.
