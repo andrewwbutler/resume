@@ -23,10 +23,10 @@ all: $(PDF) $(MD)
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-public: $(BUILD_DIR) $(TEMPLATES) $(YAML_FILES) generate.py
+public: $(TEMPLATES) $(YAML_FILES) generate.py | $(BUILD_DIR)
 	./generate.py resume.yaml
 
-$(TEX) $(MD) $(HTML): $(BUILD_DIR) $(TEMPLATES) $(YAML_FILES) generate.py
+$(TEX) $(MD) $(HTML): $(TEMPLATES) $(YAML_FILES) generate.py | $(BUILD_DIR)
 	./generate.py $(YAML_FILES)
 
 $(PDF): $(TEX)
