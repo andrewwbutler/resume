@@ -2,7 +2,7 @@
 
 [PDF]({{ pdf }}) |
 [source]({{ source }}) |
-Generated {{ generated }}.
+Last updated {{ generated }}.
 
 
 {{ body }}
