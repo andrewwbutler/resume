@@ -30,7 +30,7 @@ $(TEX) $(MD) $(HTML): $(TEMPLATES) $(YAML_FILES) generate.py | $(BUILD_DIR)
 	./generate.py $(YAML_FILES)
 
 $(PDF): $(TEX)
-	latexmk -pdf -cd- -quiet -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume
+	latexmk -pdf -cd- -quiet -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume || latexmk -pdf -cd- -verbose -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume
 	latexmk -c -cd $(BUILD_DIR)/resume
 
 viewpdf: $(PDF)
