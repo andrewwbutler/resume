@@ -8,7 +8,7 @@
         {<< school.major >>}
         {<< school.school >>}
         {}
-        {\textit{GPA: << school.gpa >>}}
+        {~< if school.gpa is defined >~\textit{GPA: << school.gpa >>}~< endif >~}
         {}
     \end{samepage}
   ~< endfor >~

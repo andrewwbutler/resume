@@ -5,7 +5,7 @@
     <p>
       <strong>{{ school.school }}</strong> - <em>{{ school.date }}</em><br/>
       {{ school.major }}<br/>
-      GPA: <strong>{{ school.gpa }}</strong>
+      {% if school.gpa is defined %}GPA: <strong>{{ school.gpa }}</strong>{% endif %}
     </p>
   {% endfor %}
 {% endblock body %}

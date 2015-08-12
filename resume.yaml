@@ -18,7 +18,10 @@ sections:
   - name: Education
     type: education
     items:
-      - date: May 2015
+      - date: July 2015--Current
+        school: University of Washington
+        major: Ph.D. Computer Science
+      - date: August 2011--May 2015
         school: University of Texas at Austin
         major: B.S. Computer Science Honors, B.A. Plan II Honors
         gpa: "4.0"
