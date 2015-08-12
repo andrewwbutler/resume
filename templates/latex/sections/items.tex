@@ -1,9 +1,9 @@
 ~< extends "section.tex" >~
 
 ~< macro listitem(item) >~
-  ~< if item.description >~
+  ~< if item.description is defined >~
     \cvitem{<< item.name >>}{<< item.description >>}
-  ~< elif item.notes >~
+  ~< elif item.notes is defined >~
     \begin{itemize}
       \item{<< item.name >>}
       \begin{itemize}
@@ -18,7 +18,7 @@
 ~< endmacro >~
 
 ~< block body >~
-  ~< if subsections >~
+  ~< if subsections is defined >~
     ~< for subs in subsections >~
       \subsection{<< subs.name >>}
         ~< for item in subs.subitems >~

@@ -14,7 +14,7 @@ import yaml
 
 from copy import copy
 from datetime import date
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 
 class RenderContext(object):
@@ -39,6 +39,7 @@ class RenderContext(object):
         self._jinja_options = jinja_options.copy()
         self._jinja_options['loader'] = FileSystemLoader(
             searchpath=context_templates_dir)
+        self._jinja_options['undefined'] = StrictUndefined
         self._jinja_env = Environment(**self._jinja_options)
 
     def make_replacements(self, yaml_data):

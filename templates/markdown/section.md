@@ -1,6 +1,6 @@
 ### {{ name }} ###
 ---
-{% if legend %}
+{% if legend is defined %}
 {{ legend }}
 
 {% endif %}

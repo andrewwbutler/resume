@@ -4,13 +4,13 @@
   {% for item in items %}
     <p>
       <strong>
-        {% if item.employer %}
-          {{ item.employer }}{% if item.location %}, {{ item.location }}{% endif %}
+        {% if item.employer is defined %}
+          {{ item.employer }}{% if item.location is defined %}, {{ item.location }}{% endif %}
         {% elif item.topic %}
           {{ item.topic }}
         {% endif %}
       </strong> -
-      {% if item.about %}
+      {% if item.about is defined %}
         <em>{{ item.about }}</em> -
       {% endif %}
       {{ item.date }}

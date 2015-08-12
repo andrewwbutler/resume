@@ -8,15 +8,15 @@
 
 \name{<< name.first >>}{<< name.last >>}
 
-~<if address >~
+~<if address is defined >~
   \address{<< address.street >>}{<< address.city >>, << address.state >> << address.zip >>}{<< address.country >>}
 ~< endif >~
 
-~<if mobile >~
+~<if mobile is defined >~
   \phone[mobile]{<< mobile >>}
 ~< endif >~
 
-~<if email >~
+~<if email is defined >~
   \email{<< email >>}
 ~< endif >~
 

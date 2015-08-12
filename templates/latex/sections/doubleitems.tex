@@ -2,6 +2,6 @@
 
 ~< block body >~
   ~< for item in items >~
-    \cvlistdoubleitem{<< item.first >>}{<< item.second >>}
+    \cvlistdoubleitem{<< item.first >>}{~<if item.second is defined >~<< item.second >>~< endif >~}
   ~< endfor >~
 ~< endblock body >~

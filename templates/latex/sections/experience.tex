@@ -5,9 +5,9 @@
     \begin{samepage}
       \cventry
         {<< item.date >>}
-        {<< item.about >>}
-        {~< if item.employer >~<< item.employer >>~< elif item.topic >~<< item.topic >>~< endif >~}
-        {<< item.location >>}
+        {~< if item.about is defined >~<< item.about >>~< endif >~}
+        {~< if item.employer is defined >~<< item.employer >>~< elif item.topic is defined >~<< item.topic >>~< endif >~}
+        {~< if item.location is defined >~<< item.location >>~< endif >~}
         {}
         { % TODO: make sure this doesn't cause an extra space when there aren't notes
           ~< if item.notes >~

@@ -2,9 +2,9 @@
 
 {% macro listitem(item) %}
   <li>
-    {% if item.description %}
+    {% if item.description is defined %}
       <strong>{{ item.name }}</strong>: {{ item.description }}
-    {% elif item.notes %}
+    {% elif item.notes is defined %}
       {{ item.name }}
       <ul>
         {% for note in item.notes %}
@@ -18,7 +18,7 @@
 {% endmacro %}
 
 {% block body %}
-  {% if subsections %}
+  {% if subsections is defined %}
     {% for subs in subsections %}
       <h4>{{ subs.name }}</h4>
       <ul>
