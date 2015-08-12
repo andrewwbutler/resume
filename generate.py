@@ -13,8 +13,9 @@ import re
 import yaml
 
 from copy import copy
-from datetime import date
+from git import Repo
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
+from time import localtime, strftime
 
 
 class RenderContext(object):
@@ -99,7 +100,10 @@ class RenderContext(object):
             body += rendered_section.rstrip() + '\n\n\n'
 
         yaml_data['body'] = body
-        yaml_data['today'] = date.today().strftime("%B %d, %Y")
+        # Grab the timestamp of the last commit
+        timestamp = Repo().head.commit.committed_date
+        yaml_data['generated'] = strftime("%B %d, %Y", localtime(timestamp))
+
         return self._render_template(
             self._base_template, yaml_data).rstrip() + '\n'
 
