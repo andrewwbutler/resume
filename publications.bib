@@ -1,0 +1,25 @@
+@MastersThesis{michael15
+  author = {Ellis Michael},
+  title = {Scaling Leader-Based Agreement Protocols for State Machine Replication},
+  school = {University of Texas at Austin},
+  year = 2015,
+  month = 5,
+  type = {Undergraduate Honors Thesis},
+  url = {http://repositories.lib.utexas.edu/bitstream/handle/2152/29985/ellis_michael_thesis.pdf},
+  abstract = {State machine replication is a technique used to guarantee the
+  availability of a system even in the presence of faults. Agreement protocols
+  are often used to implement state machine replication. However, the throughput
+  of many agreement protocols, such as Paxos, does not scale with the number of
+  machines available to the system. Systems whose throughput does scale often
+  provide weaker consistency guarantees than state machine replication's
+  linearizability. These weaker guarantees, such as eventual consistency, make
+  the job of the application programmer much more difficult.
+
+  Kapritsos and Junqueira previously proposed a protocol which uses an agreement
+  protocol as a primitive and does scale. In this thesis, I describe my novel
+  implementation of this protocol as well as the optimizations that were
+  necessary to achieve scalability. The results of my experiments with this
+  system show modest but promising evidence that the throughput of this system
+  can, indeed, scale linearly with the number of machines.}
+
+}
