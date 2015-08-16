@@ -18,7 +18,7 @@ sections:
   - name: Education
     type: education
     items:
-      - date: July 2015--Current
+      - date: July 2015--Present
         school: University of Washington
         major: Ph.D. Computer Science
       - date: August 2011--May 2015
@@ -59,7 +59,7 @@ sections:
     type: experience
     markdowntype: research
     items:
-      - date: Spring 2014--Present
+      - date: Spring 2014--Spring 2015
         topic: Distributed Computing
         about: "Advisor: Lorenzo Alvisi"
         notes:
