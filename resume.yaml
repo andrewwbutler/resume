@@ -21,13 +21,38 @@ sections:
       - date: July 2015--Present
         school: University of Washington
         major: Ph.D. Computer Science
+
       - date: August 2011--May 2015
         school: University of Texas at Austin
         major: B.S. Computer Science Honors, B.A. Plan II Honors
         gpa: "4.0"
 
 
-  - name: Work Experience
+  - name: Research Experience
+    type: experience
+    markdowntype: research
+    items:
+      - date: Spring 2014--Spring 2015
+        topic: Distributed Computing
+        about: "Advisor: Lorenzo Alvisi"
+        notes:
+          - "Implementing system outlined in Kapritsos and Junqueria ``Scalable agreement: Towards ordering as a service'' to improve the performance of the previous prototype and demonstrate the scalability of the protocol"
+          - "Undertaking an original research project focused on the connection between several recent publications including ``Dynamic atomic storage without consensus'' and ``Generalized lattice agreement,'' proving a quasi-equivalence between the two problems in order to better understand the difficulty that the dynamic setting imposes"
+
+      - date: Spring 2012
+        topic: Autonomous Vehicles Stream --- Freshman Research Initiative
+        about: "Supervisor: Piyush Khandelwal"
+        notes:
+          - Developed applications using the Robot Operating System
+          - Partnered in the implementation of a SLAM system for use with the UT-Austin vehicle
+
+
+  # These are imported by the generate script if a publications file is specified
+  - name: Publications
+    type: publications
+
+
+  - name: Industry Experience
     type: experience
     items:
       - date: Summer 2013
@@ -55,31 +80,7 @@ sections:
           - Served as an Undergraduate Teaching Assistant for the honors section of Research Methods
 
 
-  - name: Research Experience
-    type: experience
-    markdowntype: research
-    items:
-      - date: Spring 2014--Spring 2015
-        topic: Distributed Computing
-        about: "Advisor: Lorenzo Alvisi"
-        notes:
-          - "Implementing system outlined in Kapritsos and Junqueria ``Scalable agreement: Towards ordering as a service'' to improve the performance of the previous prototype and demonstrate the scalability of the protocol"
-          - "Undertaking an original research project focused on the connection between several recent publications including ``Dynamic atomic storage without consensus'' and ``Generalized lattice agreement,'' proving a quasi-equivalence between the two problems in order to better understand the difficulty that the dynamic setting imposes"
-          - "This research will culminate in my honors thesis"
-
-      - date: Spring 2012
-        topic: Autonomous Vehicles Stream --- Freshman Research Initiative
-        notes:
-          - Developed applications using the Robot Operating System
-          - Partnered in the implementation of a SLAM system for use with the UT-Austin vehicle
-
-
-  # These are imported by the generate script if a publications file is specified
-  - name: Publications
-    type: publications
-
-
-  - name: Selected Coursework
+  - name: Selected Undergraduate Coursework
     latextype: doubleitems
     legend: (H) = Honors\ \ (G) = Graduate
     items:
@@ -97,7 +98,6 @@ sections:
   - name: Skills
     items:
       - "\\textbf{Languages}: Java, Python, C, C++, Haskell, Scala, Prolog, HTML, CSS, JavaScript, PHP, XML/XSD, SQL, x86 Assembly, \\TeX, Bash, R"
-      - "Agile, pair programming, extreme programming (XP) methodologies"
 
 
   - name: Programming
@@ -105,44 +105,50 @@ sections:
       - Implemented in Java several classic distributed systems protocols, including Paxos and Three-Phase Commit
       - Built significant pieces of the JOS operating system including a memory manager, scheduler, file system, and network driver
       - As a personal project, developed a Chrome Extension to automatically inject MathJax into a webpage to render \LaTeX\ in forums and messaging and email applications
-      - Created an open-source Python package to automatically generate and send newsletters for the Dean's Scholars Honors Program
-      - Completed Berkeley's Pac-Man artificial intelligence projects
-      - Implemented Tetris AI optimized with a genetic algorithm
+#      - Created an open-source Python package to automatically generate and send newsletters for the Dean's Scholars Honors Program
+#      - Completed Berkeley's Pac-Man artificial intelligence projects
+#      - Implemented Tetris AI optimized with a genetic algorithm
       - Partnered in the development of a SLAM implementation in ROS for the UT-Austin robotic vehicle
-      - Implemented parts of a pipelined processor
-      - Optimized C and assembly language code using code motion, blocking, loop unrolling, branch prediction
-      - Created a web crawler and search engine with relevancy prediction
+#      - Implemented parts of a pipelined processor
+#      - Optimized C and assembly language code using code motion, blocking, loop unrolling, branch prediction
+#      - Created a web crawler and search engine with relevancy prediction
 
 
-  - name: Activities
-    items:
-      - Turing Scholars Students' Association, \textit{2011--2015}
-      - Dean's Scholars Council Member, \textit{2011--2015}
-      - University of Texas Quiz Bowl Team Member, \textit{2011--2015}
-      - Tutoring in the CS Department, \textit{2012--2013}
-      - Plan II Chamber Music Society -- Bassoonist, \textit{2011--2012}
+#  - name: Activities
+#    items:
+#      - Turing Scholars Students' Association, \textit{2011--2015}
+#      - Dean's Scholars Council Member, \textit{2011--2015}
+#      - University of Texas Quiz Bowl Team Member, \textit{2011--2015}
+#      - Tutoring in the CS Department, \textit{2012--2013}
+#      - Plan II Chamber Music Society -- Bassoonist, \textit{2011--2012}
 
 
   - name: Selected Honors
     subsections:
-      - name: Honors Programs
+      - name: Graduate Fellowships
         subitems:
-          - name: Dean's Scholars Honors Program
-            description: highly-selective research-oriented honors program in the College of Natural Sciences, accepts approximately 40 students per year out of more than 1000 applicants
-          - name: Turing Scholars Honors Program
-            description: highly-selective honors program for computer science students
-          - name: Plan II Honors
-            description: highly-selective interdisciplinary honors program, contains students across all schools and majors, accepts approximately 175 students per year out of more than 1500 applicants
+          - Jeff Dean - Heidi Hopper Endowed Regental Fellowship, \textit{2015}
+          - Gary Kildall Endowed Fellowship, \textit{2015}
 
-      - name: Awards
+#      - name: Undergraduate Honors Programs
+#        subitems:
+#          - name: Dean's Scholars Honors Program
+#            description: highly-selective research-oriented honors program in the College of Natural Sciences, accepts approximately 40 students per year out of more than 1000 applicants
+#          - name: Turing Scholars Honors Program
+#            description: highly-selective honors program for computer science students
+#          - name: Plan II Honors
+#            description: highly-selective interdisciplinary honors program, contains students across all schools and majors, accepts approximately 175 students per year out of more than 1500 applicants
+
+      - name: Undergraduate Awards
         subitems:
+          - Dean's Honored Graduate, College of Natural Sciences
           - Distinguished College Scholar in the College of Natural Sciences, \textit{2012--2014}
-          - name: College of Natural Science Book Award | Graduate Distributed Computing, \textit{Fall 2013}
-            notes:
-              - Recognizes outstanding academic achievement by an undergraduate in a course
-              - 20 awarded per year in the entire college comprised of over 13,000 undergraduate students
+          - College of Natural Science Book Award | Graduate Distributed Computing, \textit{Fall 2013}
+#            notes:
+#              - Recognizes outstanding academic achievement by an undergraduate in a course
+#              - 20 awarded per year in the entire college comprised of over 13,000 undergraduate students
 
-      - name: Scholarships
+      - name: Undergraduate Scholarships
         subitems:
           - Frances Rather Seybold and Frances Randolph Rather Seybold Endowed Presidential Scholarship, \textit{2014}
           - Eva Stevenson Woods Endowed Presidential Scholarship, \textit{2014}
