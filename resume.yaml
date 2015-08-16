@@ -36,8 +36,8 @@ sections:
         topic: Distributed Computing
         about: "Advisor: Lorenzo Alvisi"
         notes:
-          - "Implementing system outlined in Kapritsos and Junqueria ``Scalable agreement: Towards ordering as a service'' to improve the performance of the previous prototype and demonstrate the scalability of the protocol"
-          - "Undertaking an original research project focused on the connection between several recent publications including ``Dynamic atomic storage without consensus'' and ``Generalized lattice agreement,'' proving a quasi-equivalence between the two problems in order to better understand the difficulty that the dynamic setting imposes"
+          - "Implemented system outlined in Kapritsos and Junqueria ``Scalable agreement: Towards ordering as a service'' to improve the performance of the previous prototype and demonstrate the scalability of the protocol"
+          - "Undertook an original research project focused on the connection between several recent publications including ``Dynamic atomic storage without consensus'' and ``Generalized lattice agreement,'' proving a quasi-equivalence between the two problems in order to better understand the difficulty that the dynamic setting imposes"
 
       - date: Spring 2012
         topic: Autonomous Vehicles Stream --- Freshman Research Initiative
