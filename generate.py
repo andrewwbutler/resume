@@ -176,26 +176,46 @@ def process_resume(context, yaml_data, preview):
 
 def main():
     # Parse the command line arguments
-    parser = argparse.ArgumentParser(description=
-        'Generates HTML, LaTeX, and Markdown resumes from data in YAML files.')
-    parser.add_argument('yamls', metavar='YAML_FILE', nargs='+',
+    parser = argparse.ArgumentParser(
+        description='Generates HTML, LaTeX, and Markdown resumes from data in '
+        'YAML files.')
+    parser.add_argument(
+        'yamls', metavar='YAML_FILE', nargs='+',
         help='the YAML files that contain the resume details, in order of '
              'increasing precedence')
-    parser.add_argument('-p', '--preview', action='store_true',
+    parser.add_argument(
+        '-p', '--preview', action='store_true',
         help='prints generated resumes to stdout instead of writing to file')
+    parser.add_argument('-b', '--publications', metavar='YAML_FILE',
+                        help='YAML file with publications info')
     group = parser.add_mutually_exclusive_group()
     group.add_argument('-t', '--html', action='store_true',
-        help='only generate HTML resume')
+                       help='only generate HTML resume')
     group.add_argument('-l', '--latex', action='store_true',
-        help='only generate LaTeX resume')
+                       help='only generate LaTeX resume')
     group.add_argument('-m', '--markdown', action='store_true',
-        help='only generate Markdown resume')
+                       help='only generate Markdown resume')
     args = parser.parse_args()
 
     yaml_data = {}
     for yaml_file in args.yamls:
         with open(yaml_file) as f:
             yaml_data.update(yaml.load(f))
+
+    # Sub into the publications section as its items, if they don't exist
+    if args.publications:
+        with open(args.publications) as f:
+            pubs = yaml.load(f)
+
+        for s in yaml_data['sections']:
+            if 'type' in s and s['type'] == 'publications' and 'items' not in s:
+                s['items'] = pubs
+                break
+
+    # Remove the publications section if it exists and has no items
+    yaml_data['sections'] = [
+        s for s in yaml_data['sections']
+        if 'type' not in s or s['type'] != 'publications' or 'items' in s]
 
     if args.html or args.latex or args.markdown:
         if args.html:

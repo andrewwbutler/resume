@@ -74,6 +74,11 @@ sections:
           - Partnered in the implementation of a SLAM system for use with the UT-Austin vehicle
 
 
+  # These are imported by the generate script if a publications file is specified
+  - name: Publications
+    type: publications
+
+
   - name: Selected Coursework
     latextype: doubleitems
     legend: (H) = Honors\ \ (G) = Graduate

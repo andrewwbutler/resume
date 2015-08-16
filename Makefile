@@ -10,6 +10,8 @@ PDF=$(BUILD_DIR)/resume.pdf
 MD=$(BUILD_DIR)/resume.md
 HTML=$(BUILD_DIR)/resume.html
 
+GENERATE_CMD=./generate.py -b publications.yaml
+
 ifneq ("$(wildcard resume.hidden.yaml)","")
 	YAML_FILES = resume.yaml resume.hidden.yaml
 else
@@ -24,10 +26,10 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 public: $(TEMPLATES) $(YAML_FILES) generate.py | $(BUILD_DIR)
-	./generate.py resume.yaml
+	$(GENERATE_CMD) resume.yaml
 
 $(TEX) $(MD) $(HTML): $(TEMPLATES) $(YAML_FILES) generate.py | $(BUILD_DIR)
-	./generate.py $(YAML_FILES)
+	$(GENERATE_CMD) $(YAML_FILES)
 
 $(PDF): $(TEX)
 	latexmk -pdf -cd- -quiet -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume || latexmk -pdf -cd- -verbose -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume

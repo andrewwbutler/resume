@@ -1,0 +1,22 @@
+{% extends "section.html" %}
+
+{% block body %}
+  <ul class="publications">
+    {% for pub in items %}
+      <li class="pub">
+        <span class="title">
+          {% if pub.url is defined %}
+            <a href="{{ pub.url }}">{{ pub.title }}</a>.
+          {% else %}
+            {{ pub.title }}
+          {% endif %}
+        </span>
+        <br>
+        <span class="authors">{{ pub.authors }}</span>.
+        <br>
+        <span class="venue">{{ pub.venuetype }} {{ pub.venue }}</span>,
+        <span class="date">{{ pub.month }} {{ pub.year }}</span>.
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock body %}
