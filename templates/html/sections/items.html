@@ -3,10 +3,11 @@
 {% macro listitem(item) %}
   <li>
     {% if item.description is defined %}
-      <strong>{{ item.name }}</strong>: {{ item.description }}
+      <span class="item-with-desc-name">{{ item.name }}</span>:
+      <span class"item-desc">{{ item.description }}</span>
     {% elif item.notes is defined %}
-      {{ item.name }}
-      <ul>
+      <span class="name">{{ item.name }}</span>
+      <ul class="notes">
         {% for note in item.notes %}
           <li>{{ note }}</li>
         {% endfor %}
@@ -20,15 +21,15 @@
 {% block body %}
   {% if subsections is defined %}
     {% for subs in subsections %}
-      <h4>{{ subs.name }}</h4>
-      <ul>
+      <h4 class="subsection">{{ subs.name }}</h4>
+      <ul class="subitems">
         {% for item in subs.subitems %}
           {{ listitem(item) }}
         {% endfor %}
       </ul>
     {% endfor %}
   {% else %}
-    <ul>
+    <ul class="items">
       {% for item in items %}
         {{ listitem(item) }}
       {% endfor %}

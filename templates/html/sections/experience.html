@@ -2,23 +2,28 @@
 
 {% block body %}
   {% for item in items %}
-    <p>
-      <strong>
+    <div class="experience">
+      <span class="title">
         {% if item.employer is defined %}
           {{ item.employer }}{% if item.location is defined %}, {{ item.location }}{% endif %}
         {% elif item.topic %}
           {{ item.topic }}
         {% endif %}
-      </strong> -
+      </span> -
+
       {% if item.about is defined %}
-        <em>{{ item.about }}</em> -
+        <span class="about">{{ item.about }}</span> -
       {% endif %}
-      {{ item.date }}
-    </p>
-    <ul>
-      {% for note in item.notes %}
-        <li>{{ note }}</li>
-      {% endfor %}
-    </ul>
+
+      <span class="date">{{ item.date }}</span>
+
+      {% if item.notes is defined %}
+        <ul class="notes">
+          {% for note in item.notes %}
+            <li>{{ note }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
   {% endfor %}
 {% endblock body %}

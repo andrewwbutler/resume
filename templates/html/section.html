@@ -1,11 +1,10 @@
-<div style="position: relative;">
+<div id="{{ "section-" + name | lower | replace(' ', '-') }}" class="section">
   {% if legend is defined %}
-    <div style="position: absolute; bottom: 0; right: 0;"><p>{{ legend }}</p></div>
+    <div class="legend">{{ legend }}</div>
   {% endif %}
-  <h3>{{ name }}</h3>
-</div>
-<hr>
+  <h3 class="section-title">{{ name }}</h3>
 
-{% block body %}
-  {{ data }}
-{% endblock body %}
+  {% block body %}
+    {{ data }}
+  {% endblock body %}
+</div>
