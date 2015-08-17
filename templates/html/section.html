@@ -1,10 +1,5 @@
 <div id="{{ "section-" + name | lower | replace(' ', '-') }}" class="section">
-  <div class="section-title-wrapper">
-    {% if legend is defined %}
-      <div class="legend">{{ legend }}</div>
-    {% endif %}
-    <h3 class="section-title">{{ name }}</h3>
-  </div>
+  <h3 class="section-title">{{ name }}</h3>
 
   {% block body %}
     {{ data }}

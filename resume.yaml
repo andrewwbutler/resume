@@ -82,17 +82,16 @@ sections:
 
   - name: Selected Undergraduate Coursework
     latextype: doubleitems
-    legend: (H) = Honors\ \ (G) = Graduate
     items:
-      - Distributed Computing (G)
-      - Programming Languages (H)
-      - Algorithms and Theory of Computation (H)
-      - Operating Systems (H)
-      - Computer Organization and Arch. (H)
-      - Artificial Intelligence (H)
+      - Distributed Computing (Graduate)
+      - Programming Languages (Honors)
+      - Algorithms and Theory of Computation (Honors)
+      - Operating Systems (Honors)
+      - Computer Organization and Arch. (Honors)
+      - Artificial Intelligence (Honors)
       - Autonomous Vehicles
-      - Data Structures (H)
-      - Analysis of Programs (H)
+      - Data Structures (Honors)
+      - Analysis of Programs (Honors)
 
 
   - name: Skills
