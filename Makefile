@@ -2,6 +2,8 @@
 #
 # Brandon Amos <http://bamos.io> and Ellis Michael <http://ellismichael.com>
 
+WEBSITE_DIR=$(HOME)/Projects/andrewwbutler.github.io
+
 TEMPLATES=$(shell find templates -type f)
 
 BUILD_DIR=build
@@ -37,6 +39,19 @@ $(PDF): $(TEX)
 
 viewpdf: $(PDF)
 	gnome-open $(PDF)
+
+stage: $(PDF) $(MD)
+	cp $(PDF) $(WEBSITE_DIR)/assets/resume.pdf
+	cp $(HTML) $(WEBSITE_DIR)/resume.html
+
+jekyll: stage
+	cd $(WEBSITE_DIR) && bundle exec jekyll serve
+
+push: stage
+	git -C $(WEBSITE_DIR) add $(WEBSITE_DIR)/assets/resume.pdf
+	git -C $(WEBSITE_DIR) add $(WEBSITE_DIR)/resume.html
+	git -C $(WEBSITE_DIR) commit -m "Update resume."
+	git -C $(WEBSITE_DIR) push
 
 clean:
 	rm -rf $(BUILD_DIR)

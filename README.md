@@ -1,12 +1,9 @@
 About
 -----
 This repo contains the source I use to automatically generate [my resume]
-(http://ellismichael.com/resume/) as a webpage and PDF from YAML input.
+(http://andrewwbutler.com/resume/) as a webpage and PDF from YAML input.
 
-It was forked from [bamos/cv](https://github.com/bamos/cv) and has been heavily
-modified to fit my use case. Many of the features that were in the original repo
-have been removed to be added back in at a later date if/when I need them. See
-the original repo for details about the choices of YAML, LaTeX, and Markdown.
+It was forked from [emichael/resume](https://github.com/emichael/resume) and has been modified to fit my use case.
 
 
 How to run
@@ -47,5 +44,6 @@ License
 All of bamos' original work is distributed under the MIT license found in
 `LICENSE-bamos.mit`.
 
-My modifications are distributed under the MIT license found in
+All of Ellis' modifications are distributed under the MIT license found in
 `LICENSE-emichael.mit`.
+

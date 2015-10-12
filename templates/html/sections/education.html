@@ -3,11 +3,14 @@
 {% block body %}
   {% for school in items %}
     <div class="school">
-      <span class="name">{{ school.school }}</span> -
-      <span class="date">{{ school.date }}</span><br>
+      <span class="name"><b>{{ school.school }}</b></span> -
+      <span class="date"><i>{{ school.date }}</i></span><br>
       <span class="major">{{ school.major }}</span><br>
       {% if school.gpa is defined %}
         GPA: <span class="gpa">{{ school.gpa }}</span>
+      {% endif %}
+      {% if not loop.last %}
+      <br>
       {% endif %}
     </div>
   {% endfor %}
