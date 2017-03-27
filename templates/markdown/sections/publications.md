@@ -4,7 +4,7 @@
 {% for pub in items %}
 "{{ pub.title }}."
 {{ pub.authors }}.
-{{ pub.venuetype }} {{ pub.venue }}, {{ pub.month }} {{ pub.year }}.
+{{ pub.journal }}, {{ pub.ref }} {{ pub.year }}.
 
 {% endfor %}
 {% endblock body %}

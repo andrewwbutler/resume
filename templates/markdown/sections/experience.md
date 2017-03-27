@@ -2,7 +2,10 @@
 
 {% block body %}
 {% for item in items %}
-**{{ % item.employer % }}{% if item.location is defined %} {{ item.location }}{% endif %}** - _{{ item.about }}_ - {{ item.date }}
+**{{ item.title }}** 
+{{item.institution}} - {{item.date}} 
+{% if item.about is defined %}*{{ item.about }}*
+{% endif %}
 
 {% for note in item.notes %}
   - {{ note | wordwrap(width=76, wrapstring='\n    ') }}
@@ -10,3 +13,4 @@
 
 {% endfor %}
 {% endblock body %}
+

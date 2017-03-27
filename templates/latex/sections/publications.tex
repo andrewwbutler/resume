@@ -4,15 +4,14 @@
   \begin{enumerate}
     ~< for pub in items >~
       \item{
-        ~< if pub.url is defined >~
-          ``\href{<< pub.url >>}{<< pub.title >>}.''
-        ~< else >~
-          ``<< pub.title >>.''
-        ~< endif >~
         << pub.authors >>.
-        << pub.venuetype >>
-        << pub.venue >>,
-        << pub.month >>
+        ~< if pub.url is defined >~
+          \href{<< pub.url >>}{<< pub.title >>}.
+        ~< else >~
+          << pub.title >>.
+        ~< endif >~
+        \emph{<< pub.journal >>,}
+        << pub.ref >>,
         << pub.year >>.
       }
     ~< endfor >~
