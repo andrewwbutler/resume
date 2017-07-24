@@ -38,7 +38,7 @@ $(PDF): $(TEX)
 	latexmk -c -cd $(BUILD_DIR)/resume
 
 viewpdf: $(PDF)
-	gnome-open $(PDF)
+	open $(PDF)
 
 stage: $(PDF) $(MD)
 	cp $(PDF) $(WEBSITE_DIR)/assets/resume.pdf

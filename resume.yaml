@@ -61,6 +61,14 @@ sections:
           year: 2017
           url: "http://www.nature.com/nmeth/journal/vaop/ncurrent/full/nmeth.4179.html"
 
+        - title: "Single-cell RNA-seq reveals new types of human blood dendritic cells, monocytes, and progenitors"
+          authors: "Alexandra-Chloe Villani, Rahul Satija, Gary Reynolds, Siranush Sarkizova, Karthik Shekhar, James Fletcher, Morgane Griesbeck, \\textbf{Andrew Butler}, Shiwei Zheng, Suzan Lazo, Laura Jardine, David Dixon, Emily Stephenson, Emil Nilsson, Ida Grundberg, David McDonald, Andrew Filby, Weibo Li, Philip L. De Jager, Orit Rozenblatt-Rosen, Andrew A. Lane, Muzlifah Haniffa, Aviv Regev, Nir Hacohen"
+          journal: Science
+          ref: "dio:10.1126/science.aah4573"
+          month: 04
+          year: 2017
+          url: "http://science.sciencemag.org/content/356/6335/eaah4573"
+
 
   - name: Teaching Experience
     type: experience
