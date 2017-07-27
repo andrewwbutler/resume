@@ -2,20 +2,23 @@
 
 """Generates LaTeX, markdown, and plaintext copies of my resume."""
 
-__author__ = [
-    'Brandon Amos <http://bamos.io>',
-    'Ellis Michael <http://ellismichael.com>',
-]
 
 import argparse
 import os
 import re
-import yaml
 
 from copy import copy
+from time import localtime, strftime
+
+import yaml
+
 from git import Repo
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
-from time import localtime, strftime
+
+__author__ = [
+    'Brandon Amos <http://bamos.io>',
+    'Ellis Michael <http://ellismichael.com>',
+]
 
 
 class RenderContext(object):
@@ -102,7 +105,7 @@ class RenderContext(object):
         yaml_data['body'] = body
         # Grab the timestamp of the last commit
         timestamp = Repo().head.commit.committed_date
-        yaml_data['generated'] = strftime("%B %d", localtime(timestamp))
+        yaml_data['generated'] = strftime("%B %-d", localtime(timestamp))
 
         return self._render_template(
             self._base_template, yaml_data).rstrip() + '\n'
@@ -144,6 +147,27 @@ MARKDOWN_CONTEXT = RenderContext(
         ('---', '-'),                      # em dash
         ('--', '-'),                       # en dash
         (r'``([^\']*)\'\'', r'"\1"'),      # quotes
+        (r'\\&', '&'),                     # &
+    ]
+)
+
+TEXT_CONTEXT = RenderContext(
+    'text',
+    '.txt',
+    dict(
+        trim_blocks=True,
+        lstrip_blocks=True
+    ),
+    [
+        (r'\\ ', ' '),                 # spaces
+        (r'\\textbf{([^}]*)}', r'\1'), # bold text
+        (r'\\textit{([^}]*)}', r'\1'), # italic text
+        (r'\\LaTeX', 'LaTeX'),         # \LaTeX to boring old LaTeX
+        (r'\\TeX', 'TeX'),             # \TeX to boring old TeX
+        ('---', '-'),                  # em dash
+        ('--', '-'),                   # en dash
+        (r'``([^\']*)\'\'', r'"\1"'),  # quotes
+        (r'\\&', '&'),                 # &
     ]
 )
 
@@ -163,6 +187,7 @@ HTML_CONTEXT = RenderContext(
         ('---', '&mdash;'),                             # em dash
         ('--', '&ndash;'),                              # en dash
         (r'``([^\']*)\'\'', r'"\1"'),                   # quotes
+        (r'\\&', '&amp;'),                              # &
     ]
 )
 
@@ -170,11 +195,12 @@ HTML_CONTEXT = RenderContext(
 def process_resume(context, yaml_data, preview):
     rendered_resume = context.render_resume(yaml_data)
     if preview:
-        print rendered_resume
+        print(rendered_resume)
     else:
         context.write_to_outfile(rendered_resume)
 
 def main():
+    """Parse command line arguments and process actions."""
     # Parse the command line arguments
     parser = argparse.ArgumentParser(
         description='Generates HTML, LaTeX, and Markdown resumes from data in '
@@ -195,6 +221,8 @@ def main():
                        help='only generate LaTeX resume')
     group.add_argument('-m', '--markdown', action='store_true',
                        help='only generate Markdown resume')
+    group.add_argument('-x', '--text', action='store_true',
+                       help='only generate text resume')
     args = parser.parse_args()
 
     yaml_data = {}
@@ -202,17 +230,35 @@ def main():
         with open(yaml_file) as f:
             yaml_data.update(yaml.load(f))
 
-    if args.html or args.latex or args.markdown:
+    # Sub into the publications section as its items, if they don't exist
+    if args.publications:
+        with open(args.publications) as f:
+            pubs = yaml.load(f)
+
+        for s in yaml_data['sections']:
+            if 'type' in s and s['type'] == 'publications' and 'items' not in s:
+                s['items'] = pubs
+                break
+
+    # Remove the publications section if it exists and has no items
+    yaml_data['sections'] = [
+        s for s in yaml_data['sections']
+        if 'type' not in s or s['type'] != 'publications' or 'items' in s]
+
+    if args.html or args.latex or args.markdown or args.text:
         if args.html:
             process_resume(HTML_CONTEXT, yaml_data, args.preview)
         elif args.latex:
             process_resume(LATEX_CONTEXT, yaml_data, args.preview)
         elif args.markdown:
             process_resume(MARKDOWN_CONTEXT, yaml_data, args.preview)
+        elif args.text:
+            process_resume(TEXT_CONTEXT, yaml_data, args.preview)
     else:
         process_resume(HTML_CONTEXT, yaml_data, args.preview)
         process_resume(LATEX_CONTEXT, yaml_data, args.preview)
         process_resume(MARKDOWN_CONTEXT, yaml_data, args.preview)
+        process_resume(TEXT_CONTEXT, yaml_data, args.preview)
 
 
 if __name__ == "__main__":

@@ -2,56 +2,39 @@
 #
 # Brandon Amos <http://bamos.io> and Ellis Michael <http://ellismichael.com>
 
-WEBSITE_DIR=$(HOME)/Projects/andrewwbutler.github.io
-
 TEMPLATES=$(shell find templates -type f)
 
 BUILD_DIR=build
-TEX=$(BUILD_DIR)/resume.tex
+BUILD_DEPS=$(TEMPLATES) resume.yaml generate.py | $(BUILD_DIR)
 PDF=$(BUILD_DIR)/resume.pdf
 MD=$(BUILD_DIR)/resume.md
 HTML=$(BUILD_DIR)/resume.html
+TXT=$(BUILD_DIR)/resume.txt
 
-GENERATE_CMD=./generate.py -b publications.yaml
+GENERATE_CMD=./generate.py -b publications.yaml resume.yaml
 
-ifneq ("$(wildcard resume.hidden.yaml)","")
-	YAML_FILES = resume.yaml resume.hidden.yaml
-else
-	YAML_FILES = resume.yaml
-endif
+define build_latex
+	latexmk -pdf -cd- -quiet -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume || latexmk -pdf -cd- -verbose -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume
+	latexmk -c -cd $(BUILD_DIR)/resume
+endef
 
-.PHONY: all public viewpdf clean
+.PHONY: all private viewpdf clean
 
-all: $(PDF) $(MD)
+all: $(PDF) $(MD) $(HTML)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-public: $(TEMPLATES) $(YAML_FILES) generate.py | $(BUILD_DIR)
-	$(GENERATE_CMD) resume.yaml
+$(PDF) $(MD) $(HTML) $(TXT): $(BUILD_DEPS)
+	$(GENERATE_CMD)
+	$(call build_latex)
 
-$(TEX) $(MD) $(HTML): $(TEMPLATES) $(YAML_FILES) generate.py | $(BUILD_DIR)
-	$(GENERATE_CMD) $(YAML_FILES)
-
-$(PDF): $(TEX)
-	latexmk -pdf -cd- -quiet -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume || latexmk -pdf -cd- -verbose -jobname=$(BUILD_DIR)/resume $(BUILD_DIR)/resume
-	latexmk -c -cd $(BUILD_DIR)/resume
+private: private.yaml $(BUILD_DEPS)
+	$(GENERATE_CMD) private.yaml
+	$(call build_latex)
 
 viewpdf: $(PDF)
-	open $(PDF)
-
-stage: $(PDF) $(MD)
-	cp $(PDF) $(WEBSITE_DIR)/assets/resume.pdf
-	cp $(HTML) $(WEBSITE_DIR)/resume.html
-
-jekyll: stage
-	cd $(WEBSITE_DIR) && bundle exec jekyll serve
-
-push: stage
-	git -C $(WEBSITE_DIR) add $(WEBSITE_DIR)/assets/resume.pdf
-	git -C $(WEBSITE_DIR) add $(WEBSITE_DIR)/resume.html
-	git -C $(WEBSITE_DIR) commit -m "Update resume."
-	git -C $(WEBSITE_DIR) push
+	gnome-open $(PDF)
 
 clean:
 	rm -rf $(BUILD_DIR)

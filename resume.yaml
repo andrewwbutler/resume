@@ -20,54 +20,41 @@ sections:
     items:
       - date: August 2015--Present
         school: "New York University"
-        major: Ph.D. Biology
+        major: "Ph.D. Biology"
+        notes: "Advisor: Rahul Satija"
 
       - date: August 2011--May 2015
         school: "University of Texas at Austin"
         major: B.S. Biology Honors
 
-
   - name: Research Experience
-    type: experience
-    markdowntype: research
+    htmltype: experience
+    latextype: experience
+    type: research
+    
     items:
       - date: May 2016 - Present  
-        topic: Single Cell Genomics
+        topic: "Single Cell Genomics"
         about: "Advisor: Rahul Satija"
         notes:
           - "Currently conducting research on methods development for single-cell RNA-seq analsysis. Topics of interest include cell type identification through supervised and unsupervised analyses. Also contributing to the open source R package developed in the lab."
 
       - date: Summer 2013 - Spring 2015
-        topic: Computational Biology
+        topic: "Computational Biology"
         about: "Advisor: Claus Wilke"
         notes:
           - "Conducted research focused on improving multiple protein sequence alignment. Hidden markov models were used as the basis of these alignment algorithms in order to incorporate relevant biochemical/biophysical information into the alignments. Also contributed to a collaborative project aiming to better characterize bacterial metabolism. Worked primarily with RNA-Seq data to understand tRNA gene levels"
           - "Contributed to a collaborative project aiming to better characterize bacterial metabolism. Worked primarily with RNA-Seq data to understand tRNA gene levels. Work culminated in an honors thesis project."
 
       - date: Summer 2012 - Spring 2013
-        topic: Virtual Drug Screening --- Freshman Research Initiative
+        topic: "Virtual Drug Screening --- Freshman Research Initiative"
         about: "Advisor: Josh Beckham"
         notes:
           - "Conducted preliminary drug discovery research. A combination of wet lab techniques and virtual high throughput screening methods were used in an attempt to find inhibitors for a protein target of interest. Worked primarily on a protein critical to viability in \\textit{Plasmodium falciparum}." 
 
+  # These are imported by the generate script if a publications file is specified
   - name: Publications
     type: publications
-    markdowntype: publications
-    items:
-        - title: "Seq-Well: portable, low-cost RNA sequencing of single cells at high throughput"
-          authors: "Todd M Gierahn, Marc H Wadsworth II, Travis K Hughes, Bryan D Bryson, \\textbf{Andrew Butler}, Rahul Satija, Sarah Fortune, J Christopher Love, Alex K Shalek"
-          journal: Nature Methods
-          ref: doi:10.1038/nmeth.4179
-          year: 2017
-          url: "http://www.nature.com/nmeth/journal/vaop/ncurrent/full/nmeth.4179.html"
-
-        - title: "Single-cell RNA-seq reveals new types of human blood dendritic cells, monocytes, and progenitors"
-          authors: "Alexandra-Chloe Villani, Rahul Satija, Gary Reynolds, Siranush Sarkizova, Karthik Shekhar, James Fletcher, Morgane Griesbeck, \\textbf{Andrew Butler}, Shiwei Zheng, Suzan Lazo, Laura Jardine, David Dixon, Emily Stephenson, Emil Nilsson, Ida Grundberg, David McDonald, Andrew Filby, Weibo Li, Philip L. De Jager, Orit Rozenblatt-Rosen, Andrew A. Lane, Muzlifah Haniffa, Aviv Regev, Nir Hacohen"
-          journal: Science
-          ref: "dio:10.1126/science.aah4573"
-          month: 04
-          year: 2017
-          url: "http://science.sciencemag.org/content/356/6335/eaah4573"
 
 
   - name: Teaching Experience
@@ -75,46 +62,22 @@ sections:
     markdowntype: experience
     items:
       - date: Fall 2016 - Spring 2017
-        title: Recitation Leader --- Biostatistics
+        about: Recitation Leader --- Biostatistics
         institution: New York University
         notes:
           - "Led recitation sections for the undergraduate biostatistics course. Taught introductory statistics concepts and the programming language R. Graded assignments and tests for 40+ students."
 
       - date: Spring 2013 - Fall 2013
-        title: Peer Mentor --- Freshman Research Initiative
+        about: Peer Mentor --- Freshman Research Initiative
         institution: University of Texas at Austin
         notes:
           - "Worked as a peer mentor for the Freshman Research Initiative Program. Helped teach proper laboratory techniques and provided assistance and guidance to freshman students interested in research. Supervised by Dr. Josh Beckham."
 
       - date: Fall 2012
-        title: Undergraduate Teaching Assistant --- Biostatistics
+        about: Undergraduate Teaching Assistant --- Biostatistics
         institution: University of Texas at Austin
         notes:
           -  "Worked as an undergraduate teaching assistant for Dr. Bindu Viswanathan's ``Biostatistics'' course. Graded lab and homework assignments for 20+ students. Provided assistance to students during lab time and with in-class assignments."
-
-
-  - name: Selected Graduate Coursework
-    latextype: doubleitems
-    items: 
-      - Biocore III/IV
-      - Statistics and Machine Learning
-      - Bioinformatics
-      - Neuroimmunology
-
-  - name: Selected Undergraduate Coursework
-    latextype: doubleitems
-    items:
-      - Genetics 
-      - Molecular Biology
-      - Microbiology
-      - Evolution
-      - Virology
-      - Developmental Biology
-      - Computational Biology
-      - Data Structures
-      - Microbiology
-      - Organic Chemistry (I and II)
-
 
 
   - name: Skills
@@ -129,19 +92,19 @@ sections:
     items:
 
       - date: April 2015
-        title: Undergraduate Research Forum
+        about: Undergraduate Research Forum
         institution: University of Texas at Austin
         notes: 
           - "Presented a poster summarizing my undergraduate honors thesis research on RNA-seq read coverage variability in tRNA reads."
 
       - date: August 2013
-        title: BEACON Congress
+        about: BEACON Congress
         institution: Michigan State University
         notes: 
           - "Presented a summary of my research related to Hidden Markov Model multiple protein sequence alignment in a short oral talk."
 
       - date: April 2013
-        title: National Conference on Undergraduate Research
+        about: National Conference on Undergraduate Research
         institution: University of Wisconsin - La Crosse
         notes: 
           - "Presented a poster demonstrating the research done towards discovering novel inhibitors for a protein target in \\textit{Plasmodium falciparum}."

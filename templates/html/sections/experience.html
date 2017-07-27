@@ -4,26 +4,18 @@
   {% for item in items %}
     <div class="experience">
       <span class="title">
-        {% if item.employer is defined %}
-          {{ item.employer }}{% if item.location is defined %}, {{ item.location }}{% endif %}
-        {% elif item.topic is defined %}
-          <b>{{ item.topic }}</b>
-        {% elif item.title is defined %}
-          <b>{{ item.title }}</b>
+        {% if item.institution is defined %}
+          {{ item.institution }}{% if item.location is defined %}, {{ item.location }}{% endif %}
+        {% elif item.topic %}
+          {{ item.topic }}
         {% endif %}
       </span> -
 
       {% if item.about is defined %}
-        <span class="about"><i>{{ item.about }}</i></span> -
-      {% endif %}
-
-      {% if item.institution is defined %}
-        <span class="institution"><i>{{ item.institution }}</i></span> -
+        <span class="about">{{ item.about }}</span> -
       {% endif %}
 
       <span class="date">{{ item.date }}</span>
-
-
 
       {% if item.notes is defined %}
         <ul class="notes">

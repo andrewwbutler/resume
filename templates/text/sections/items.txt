@@ -1,4 +1,4 @@
-{% extends "section.md" %}
+{% extends "section.txt" %}
 
 {% macro listitem(item) %}{% if item.description is defined %}  - **{{ item.name | wordwrap(width=76, wrapstring='\n    ') }}:**
     {{ item.description | wordwrap(width=76, wrapstring='\n    ') }}
@@ -10,7 +10,7 @@
 {% block body %}
 {% if subsections is defined %}
 {% for subs in subsections %}
-#### {{ subs.name }} ####
+{{ subs.name }}
 {% for item in subs.subitems %}{{ listitem(item) }}{% endfor %}
 
 {% endfor %}

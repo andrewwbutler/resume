@@ -1,9 +1,42 @@
-  - name: Publications
-    type: publications
-    markdowntype: publications
-    items:
-      - tile: "Seq-Well: portable, low-cost RNA sequencing of single cells at high throughput"
-        authors: Todd M Gierahn, Marc H Wadsworth II, Travis K Hughes, Bryan D Bryson, Andrew Butler, Rahul Satija, Sarah Fortune, J Christopher Love, Alex K Shalek
-        journal: Nature Methods
-        month: 02
-        year: 2017
+################################################################################
+# Required keys:
+#   - title
+#   - authors
+#   - key (must be unique)
+#   - year
+#   - month
+#   - journal
+#
+# Optional keys:
+#   - abstract
+#   - url
+#   - slides
+#
+# TODO: make sure these get processed in time order for resume
+################################################################################
+
+- title: "Single-cell RNA-seq reveals new types of human blood dendritic cells, 
+          monocytes, and progenitors"
+  authors: "Alexandra-Chloe Villani, Rahul Satija, Gary Reynolds, Siranush Sarkizova, 
+            Karthik Shekhar, James Fletcher, Morgane Griesbeck, Andrew Butler, 
+            Shiwei Zheng, Suzan Lazo, Laura Jardine, David Dixon, Emily Stephenson, 
+            Emil Nilsson, Ida Grundberg, David McDonald, Andrew Filby, Weibo Li, 
+            Philip L De Jager, Orit Rozenblatt-Rosen, Andrew A Lane, Muzlifah Haniffa, 
+            Aviv Regev, Nir Hacohen"
+  key: science2017
+  year: 2017
+  month: April
+  journal: Science
+  url: http://science.sciencemag.org/content/356/6335/eaah4573
+  abstract: >
+    Dendritic cells (DCs) and monocytes play a central role in pathogen sensing, 
+    phagocytosis, and antigen presentation and consist of multiple specialized 
+    subtypes. However, their identities and interrelationships are not fully 
+    understood. Using unbiased single-cell RNA sequencing (RNA-seq) of ~2400 cells,
+    we identified six human DCs and four monocyte subtypes in human blood. Our 
+    study reveals a new DC subset that shares properties with plasmacytoid DCs 
+    (pDCs) but potently activates T cells, thus redefining pDCs; a new subdivision 
+    within the CD1C+ subset of DCs; the relationship between blastic plasmacytoid 
+    DC neoplasia cells and healthy DCs; and circulating progenitor of conventional 
+    DCs (cDCs). Our revised taxonomy will enable more accurate functional and 
+    developmental analyses as well as immune monitoring in health and disease.

@@ -8,8 +8,10 @@
         {<< school.major >>}
         {<< school.school >>}
         {}
-        {~< if school.gpa is defined >~\textit{GPA: << school.gpa >>}~< endif >~}
         {}
+        {~< if school.notes is defined >~ \vspace{1.5pt} \normalsize << school.notes >>~< endif >~}
     \end{samepage}
+    \vspace{10pt}
   ~< endfor >~
+  \vspace{-10pt}
 ~< endblock body >~

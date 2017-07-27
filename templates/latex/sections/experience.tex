@@ -5,12 +5,12 @@
     \begin{samepage}
       \cventry
         {<< item.date >>}
-        {~< if item.about is defined >~<< item.about >>~< elif item.institution is defined >~<< item.institution >>~< endif >~}
-        {~< if item.topic is defined >~<< item.topic >>~< elif item.title is defined >~<< item.title >>~< endif >~}
+        {~< if item.about is defined >~<< item.about >>~< endif >~}
+        {~< if item.institution is defined >~<< item.institution >>~< elif item.topic is defined >~<< item.topic >>~< endif >~}
         {~< if item.location is defined >~<< item.location >>~< endif >~}
         {}
         { % TODO: make sure this doesn't cause an extra space when there aren't notes
-          ~< if item.notes >~
+          ~< if item.notes is defined >~
             \begin{itemize}
               ~< for note in item.notes >~
                 \item{<< note >>}
@@ -18,6 +18,9 @@
             \end{itemize}
           ~< endif >~
         }
+        ~< if item.notes is not defined >~
+          \vspace{-1em}
+        ~< endif >~
     \end{samepage}
     \vspace{10pt}
   ~< endfor >~

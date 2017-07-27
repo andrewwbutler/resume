@@ -2,16 +2,17 @@
 
 ~< block body >~
   \begin{enumerate}
+    \itemsep 1em
     ~< for pub in items >~
       \item{
-        << pub.authors >>.
         ~< if pub.url is defined >~
-          \href{<< pub.url >>}{<< pub.title >>}.
+          ``\href{<< pub.url >>}{<< pub.title >>}.''
         ~< else >~
-          << pub.title >>.
-        ~< endif >~
-        \emph{<< pub.journal >>,}
-        << pub.ref >>,
+          ``<< pub.title >>.''
+        ~< endif >~\\
+        << pub.authors >>.\\
+        << pub.journal >>.
+        << pub.month >>
         << pub.year >>.
       }
     ~< endfor >~

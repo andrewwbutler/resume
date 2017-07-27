@@ -1,9 +1,10 @@
-{% extends "section.md" %}
+{% extends "section.txt" %}
 
 {% block body %}
 {% for item in items %}
-{% set info %}**{{ item.institution }}{% if item.location is defined %}, {{ item.location }}{% endif %}** - _{{ item.about }}_ - {{ item.date }}{% endset %}
+{% set info %}{{ item.institution }}{% if item.location is defined %}, {{ item.location }}{% endif %} - {{ item.about }}{% endset %}
 {{ info | wordwrap(width=80) }}
+{{ item.date }}
 
 {% if item.notes is defined %}
 {% for note in item.notes %}

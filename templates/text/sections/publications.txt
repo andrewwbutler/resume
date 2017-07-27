@@ -1,4 +1,4 @@
-{% extends "section.md" %}
+{% extends "section.txt" %}
 {% macro render_pub(pub) -%}
 "{{ pub.title }}." {{ pub.authors }}. {{ pub.journal }} {% if pub.venueshort is defined %} ({{ pub.venueshort }}){% endif %}{% if pub.venuelocation is defined %}, {{ pub.venuelocation }}{% endif %}. {{ pub.month }} {{ pub.year }}.
 {%- endmacro %}

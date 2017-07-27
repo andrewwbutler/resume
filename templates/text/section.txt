@@ -1,0 +1,5 @@
+{{ name }}
+{{ '-' * (name | length) }}
+{% block body %}
+{{ data }}
+{% endblock body %}
