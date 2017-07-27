@@ -42,7 +42,6 @@
     - Muzlifah Haniffa 
     - Aviv Regev
     - Nir Hacohen
-    - testing 
   key: science2017
   year: 2017
   month: April
@@ -60,3 +59,28 @@
     DC neoplasia cells and healthy DCs; and circulating progenitor of conventional 
     DCs (cDCs). Our revised taxonomy will enable more accurate functional and 
     developmental analyses as well as immune monitoring in health and disease.
+
+- title: "Seq-Well: portable, low-cost RNA sequencing of single cells at high throughput"
+  authors: 
+    - Todd M Gierahn
+    - Marc H Wadsworth II
+    - Travis K Hughes
+    - Bryan D Bryson
+    - Andrew Butler
+    - Rahul Satija
+    - Sarah Fortune
+    - J Christopher Love
+    - Alex K Shalek
+  key: nm2017
+  year: 2017
+  month: February
+  journal: Nature Methods
+  url: https://www.nature.com/nmeth/journal/v14/n4/abs/nmeth.4179.html
+  abstract: >
+    Single-cell RNA-seq can precisely resolve cellular states, but applying this method 
+    to low-input samples is challenging. Here, we present Seq-Well, a portable, low-cost 
+    platform for massively parallel single-cell RNA-seq. Barcoded mRNA capture beads and 
+    single cells are sealed in an array of subnanoliter wells using a semipermeable 
+    membrane, enabling efficient cell lysis and transcript capture. We use Seq-Well to 
+    profile thousands of primary human macrophages exposed to \emph{Mycobacterium tuberculosis}.
+

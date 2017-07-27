@@ -10,13 +10,17 @@
         ~< else >~
           ``<< pub.title >>.''
         ~< endif >~\\
-	~< for author in pub.authors >~
-		~< if author == "Andrew Butler" >~
-			\textbf{ << author >>},
-		~< else >~
-        		<< author >>,
-		~< endif >~
-	~< endfor >~
+      	~< for author in pub.authors >~
+      		~< if author == "Andrew Butler" >~
+      			\textbf{ << author >>, }
+      		~< else >~
+            ~< if loop.last >~
+              << author >>. 
+            ~< else >~
+              << author >>, 
+            ~< endif >~
+          ~< endif >~
+      	~< endfor >~
         << pub.journal >>.
         << pub.month >>
         << pub.year >>.
