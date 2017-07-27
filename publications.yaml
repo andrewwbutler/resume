@@ -17,12 +17,32 @@
 
 - title: "Single-cell RNA-seq reveals new types of human blood dendritic cells, 
           monocytes, and progenitors"
-  authors: "Alexandra-Chloe Villani, Rahul Satija, Gary Reynolds, Siranush Sarkizova, 
-            Karthik Shekhar, James Fletcher, Morgane Griesbeck, Andrew Butler, 
-            Shiwei Zheng, Suzan Lazo, Laura Jardine, David Dixon, Emily Stephenson, 
-            Emil Nilsson, Ida Grundberg, David McDonald, Andrew Filby, Weibo Li, 
-            Philip L De Jager, Orit Rozenblatt-Rosen, Andrew A Lane, Muzlifah Haniffa, 
-            Aviv Regev, Nir Hacohen"
+  authors: 
+    - Alexandra-Chloe Villani
+    - Rahul Satija
+    - Gary Reynolds
+    - Siranush Sarkizova
+    - Karthik Shekhar
+    - James Fletcher
+    - Morgane Griesbeck
+    - Andrew Butler
+    - Shiwei Zheng
+    - Suzan Lazo
+    - Laura Jardine 
+    - David Dixon
+    - Emily Stephenson
+    - Emil Nilsson
+    - Ida Grundberg
+    - David McDonald
+    - Andrew Filby
+    - Weibo Li
+    - Philip L De Jager
+    - Orit Rozenblatt-Rosen
+    - Andrew A Lane
+    - Muzlifah Haniffa 
+    - Aviv Regev
+    - Nir Hacohen
+    - testing 
   key: science2017
   year: 2017
   month: April
