@@ -37,7 +37,7 @@ sections:
         topic: "Single Cell Genomics"
         about: "Advisor: Rahul Satija"
         notes:
-          - "Currently conducting research on methods development for single-cell RNA-seq analsysis. Topics of interest include cell type identification through supervised and unsupervised analyses. Also contributing to the open source R package developed in the lab."
+          - "Currently conducting research on methods development for single-cell RNA-seq analsysis. Topics of interest include cell type identification through supervised and unsupervised analyses and methods for data integration. Also contributing as one of the lead developers to Seurat, the open source R package developed and maintained by the Satija lab."
 
       - date: Summer 2013 - Spring 2015
         topic: "Computational Biology"

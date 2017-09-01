@@ -14,6 +14,68 @@
 #
 # TODO: make sure these get processed in time order for resume
 ################################################################################
+- title: "Integrated analysis of single cell transcriptomic data across conditions, technologies, and species"
+  authors: 
+    - Andrew Butler
+    - Rahul Satija
+  key: integrate2017
+  year: 2017
+  month: July
+  journal: bioRxiv
+  url: http://www.biorxiv.org/content/early/2017/07/18/164889
+  abstract: >
+    Single cell RNA-seq (scRNA-seq) has emerged as a transformative tool to discover and define cellular 
+    phenotypes. While computational scRNA-seq methods are currently well suited for experiments representing 
+    a single condition, technology, or species, analyzing multiple datasets simultaneously raises new challenges. 
+    In particular, traditional analytical workflows struggle to align subpopulations that are present across 
+    datasets, limiting the possibility for integrated or comparative analysis. Here, we introduce a new 
+    computational strategy for scRNA-seq alignment, utilizing common sources of variation to identify shared 
+    subpopulations between datasets as part of our R toolkit Seurat. We demonstrate our approach by aligning 
+    scRNA-seq datasets of PBMCs under resting and stimulated conditions, hematopoietic progenitors sequenced 
+    across two profiling technologies, and pancreatic cell 'atlases' generated from human and mouse islets. In 
+    each case, we learn distinct or transitional cell states jointly across datasets, and can identify 
+    subpopulations that could not be detected by analyzing datasets independently. We anticipate that these methods
+     will serve not only to correct for batch or technology-dependent effects, but also to facilitate general 
+     comparisons of scRNA-seq datasets, potentially deepening our understanding of how distinct cell states 
+     respond to perturbation, disease, and evolution.
+
+- title: "Single-Cell RNA-Seq Of Rheumatoid Arthritis Synovial Tissue Using Low Cost Microfluidic Instrumentation"
+  authors:
+    - William Stephenson
+    - Laura T Donlin
+    - Andrew Butler
+    - Cristina Rozo
+    - Ali Rashidfarrokhi
+    - Susan M Goodman
+    - Lionel B Ivashkiv
+    - Vivian P Bykerk
+    - Dana E Orange
+    - Robert B Darnell
+    - Harold P Swerdlow
+    - Rahul Satija
+  key: minidrops
+  year: 2017
+  month: May
+  journal: bioRxiv
+  url: http://www.biorxiv.org/content/early/2017/05/22/140848
+  abstract: >
+    Droplet-based single cell RNA-seq has emerged as a powerful technique for massively parallel 
+    cellular profiling. While these approaches offer the exciting promise to deconvolute cellular 
+    heterogeneity in diseased tissues, the lack of cost-effective, reliable, and user-friendly 
+    instrumentation has hindered widespread adoption of droplet microfluidic techniques. To address 
+    this, we have developed a microfluidic control instrument that can be easily assembled from 3D 
+    printed parts and commercially available components costing approximately $540. We adapted this
+    instrument for massively parallel scRNA-seq and deployed it in a clinical environment to perform
+    single cell transcriptome profiling of disaggregated synovial tissue from a rheumatoid arthritis
+    patient. We sequenced 8,716 single cells from a synovectomy, revealing 16 transcriptomically 
+    distinct clusters. These encompass a comprehensive and unbiased characterization of the 
+    autoimmune infiltrate, including inflammatory T and NK subsets that contribute to disease 
+    biology. Additionally, we identified fibroblast subpopulations that are demarcated via THY1 
+    (CD90) and CD55 expression. Further experiments confirm that these represent synovial fibroblasts 
+    residing within the synovial intimal lining and subintimal lining, respectively, each under the 
+    influence of differing microenvironments. We envision that this instrument will have broad utility 
+    in basic and clinical settings, enabling low-cost and routine application of microfluidic 
+    techniques, and in particular single-cell transcriptome profiling.
 
 - title: "Single-cell RNA-seq reveals new types of human blood dendritic cells, 
           monocytes, and progenitors"
