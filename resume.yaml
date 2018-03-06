@@ -61,6 +61,11 @@ sections:
     type: experience
     markdowntype: experience
     items:
+      - date: Fall 2017
+        about: Recitation Leader --- Statistical learning from large-scale biological data
+        institution: New York University
+        notes:
+          - "Led a recitation help section for 10-15 graduate students. Taught introductory statistics, machine learning, and programming concepts and graded assignments."
       - date: Fall 2016 - Spring 2017
         about: Recitation Leader --- Biostatistics
         institution: New York University
@@ -80,16 +85,22 @@ sections:
           -  "Worked as an undergraduate teaching assistant for Dr. Bindu Viswanathan's ``Biostatistics'' course. Graded lab and homework assignments for 20+ students. Provided assistance to students during lab time and with in-class assignments."
 
 
-  - name: Skills
-    items:
-      - "\\textbf{Programming Languages}: R, Python, C, C++, \\TeX, Bash, Java"
-      - "\\textbf{Laboratory Techniques}: PCR, Gel Electrophoresis, Ligation Independent Cloning, Protein Expression, Protein Purification, Protein Characterization, Enzymatic Activity Assay, Animal Cell Culture, Virus Purification/Characterization"
+  #- name: Skills
+  #  items:
+  #    - "\\textbf{Programming Languages}: R, Python, C, C++, \\TeX, Bash, Java"
+  #    - "\\textbf{Laboratory Techniques}: PCR, Gel Electrophoresis, Ligation Independent Cloning, Protein Expression, Protein Purification, Protein Characterization, Enzymatic Activity Assay, Animal Cell Culture, Virus Purification/Characterization"
 
 
-  - name: Conference Presentations
+  - name: Selected Presentations
     type: experience
     markdowntype: experience
     items:
+
+      - date: September 2017
+        about: NYU Biology Department Annual Retreat 
+        institution: New York University
+        notes: 
+          - "Presented a summary of my research on a new method to integrate scRNA-seq data."
 
       - date: April 2015
         about: Undergraduate Research Forum
@@ -112,6 +123,9 @@ sections:
 
   - name: Selected Honors
     subsections:
+      - name: Awards
+        subitems:
+          - New York Genome Center Outstanding Contribution (PhD student), \textit{2017}
       - name: Graduate Fellowships
         subitems:
            - NSF Graduate Research Fellowship, \textit{2017}

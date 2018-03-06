@@ -13,6 +13,8 @@
         ~< endif >~\\
       	~< for author in pub.authors >~
       		~< if author == "Andrew Butler" >~
+      			\textbf{ << author >>, }	
+      		~< elif author == "Andrew Butler$^*$" >~
       			\textbf{ << author >>, }
       		~< else >~
             ~< if loop.last >~

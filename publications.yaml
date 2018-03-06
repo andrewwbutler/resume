@@ -17,11 +17,14 @@
 - title: "Integrated analysis of single cell transcriptomic data across conditions, technologies, and species"
   authors: 
     - Andrew Butler
+    - Paul Hoffman
+    - Peter Smibert
+    - Efthymia Papalexi
     - Rahul Satija
-  key: integrate2017
-  year: 2017
-  month: July
-  journal: bioRxiv
+  key: integrate2018
+  year: 2018
+  month: (in press)
+  journal: Nature Biotechnology
   url: http://www.biorxiv.org/content/early/2017/07/18/164889
   abstract: >
     Single cell RNA-seq (scRNA-seq) has emerged as a transformative tool to discover and define cellular 
@@ -39,11 +42,43 @@
      comparisons of scRNA-seq datasets, potentially deepening our understanding of how distinct cell states 
      respond to perturbation, disease, and evolution.
 
+
+- title: "Developmental diversification of cortical inhibitory interneurons"
+  authors:
+    - Christian Mayer$^*$
+    - Christoph Hafemeister$^*$
+    - Rachel C. Bandler$^*$
+    - Robert Machold
+    - Renata Batista Brito
+    - Xavier Jaglin
+    - Kathryn Allaway
+    - Andrew Butler
+    - Gord Fishell
+    - Rahul Satija
+  key: interneuron2018
+  year: 2018
+  month: March
+  journal: Nature 
+  url: https://www.nature.com/articles/nature25999
+  abstract: >
+    Diverse subsets of cortical interneurons have vital roles in higher-order brain functions. To investigate how 
+    this diversity is generated, here we used single-cell RNA sequencing to profile the transcriptomes of mouse cells 
+    collected along a developmental time course. Heterogeneity within mitotic progenitors in the ganglionic eminences 
+    is driven by a highly conserved maturation trajectory, alongside eminence-specific transcription factor expression 
+    that seeds the emergence of later diversity. Upon becoming postmitotic, progenitors diverge and differentiate into 
+    transcriptionally distinct states, including an interneuron precursor state. By integrating datasets across 
+    developmental time points, we identified shared sources of transcriptomic heterogeneity between adult interneurons 
+    and their precursors, and uncovered the embryonic emergence of cardinal interneuron subtypes. Our analysis revealed 
+    that the transcription factor Mef2c, which is linked to various neuropsychiatric and neurodevelopmental disorders, 
+    delineates early precursors of parvalbumin-expressing neurons, and is essential for their development. These findings 
+    shed new light on the molecular diversification of early inhibitory precursors, and identify gene modules that may 
+    influence the specification of human interneuron subtypes.
+
 - title: "Single-Cell RNA-Seq Of Rheumatoid Arthritis Synovial Tissue Using Low Cost Microfluidic Instrumentation"
   authors:
-    - William Stephenson
-    - Laura T Donlin
-    - Andrew Butler
+    - William Stephenson$^*$
+    - Laura T Donlin$^*$
+    - Andrew Butler$^*$
     - Cristina Rozo
     - Ali Rashidfarrokhi
     - Susan M Goodman
@@ -54,10 +89,10 @@
     - Harold P Swerdlow
     - Rahul Satija
   key: minidrops
-  year: 2017
-  month: May
-  journal: bioRxiv
-  url: http://www.biorxiv.org/content/early/2017/05/22/140848
+  year: 2018
+  month: February
+  journal: Nature Comunications
+  url: https://www.nature.com/articles/s41467-017-02659-x
   abstract: >
     Droplet-based single cell RNA-seq has emerged as a powerful technique for massively parallel 
     cellular profiling. While these approaches offer the exciting promise to deconvolute cellular 
@@ -80,8 +115,8 @@
 - title: "Single-cell RNA-seq reveals new types of human blood dendritic cells, 
           monocytes, and progenitors"
   authors: 
-    - Alexandra-Chloe Villani
-    - Rahul Satija
+    - Alexandra-Chloe Villani$^*$
+    - Rahul Satija$^*$
     - Gary Reynolds
     - Siranush Sarkizova
     - Karthik Shekhar
