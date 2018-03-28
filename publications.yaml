@@ -43,6 +43,33 @@
      respond to perturbation, disease, and evolution.
 
 
+- title: "Molecular transitions in early progenitors during human cord blood hematopoiesis"
+  authors:
+    - Shiwei Zheng
+    - Efthymia Papalexi
+    - Andrew Butler
+    - William Stephenson
+    - Rahul Satija
+  key: msb2018
+  year: 2018
+  month: March
+  journal: Molecular Systems Biology
+  url: http://msb.embopress.org/content/14/3/e8041
+  abstract: >
+    Hematopoietic stem cells (HSCs) give rise to diverse cell types in the blood system, yet our molecular 
+    understanding of the early trajectories that generate this enormous diversity in humans remains incomplete. 
+    Here, we leverage Drop‐seq, a massively parallel single‐cell RNA sequencing (scRNA‐seq) approach, to 
+    individually profile 20,000 progenitor cells from human cord blood, without prior enrichment or depletion for 
+    individual lineages based on surface markers. Our data reveal a transcriptional compendium of progenitor states 
+    in human cord blood, representing four committed lineages downstream from HSC, alongside the transcriptional 
+    dynamics underlying fate commitment. We identify intermediate stages that simultaneously co‐express “primed” 
+    programs for multiple downstream lineages, and also observe striking heterogeneity in the early molecular 
+    transitions between myeloid subsets. Integrating our data with a recently published scRNA‐seq dataset from 
+    human bone marrow, we illustrate the molecular similarity between these two commonly used systems and further 
+    explore the chromatin dynamics of “primed” transcriptional programs based on ATAC‐seq. Finally, we demonstrate 
+    that Drop‐seq data can be utilized to identify new heterogeneous surface markers of cell state that correlate 
+    with functional output.
+
 - title: "Developmental diversification of cortical inhibitory interneurons"
   authors:
     - Christian Mayer$^*$
