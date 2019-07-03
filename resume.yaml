@@ -20,7 +20,7 @@ sections:
     items:
       - date: August 2015--Present
         school: "New York University"
-        major: "Ph.D. Biology"
+        major: "Ph.D. Candidate Biology"
         notes: "Advisor: Rahul Satija"
 
       - date: August 2011--May 2015
@@ -44,7 +44,6 @@ sections:
         about: "Advisor: Claus Wilke"
         notes:
           - "Conducted research focused on improving multiple protein sequence alignment. Hidden markov models were used as the basis of these alignment algorithms in order to incorporate relevant biochemical/biophysical information into the alignments. Also contributed to a collaborative project aiming to better characterize bacterial metabolism. Worked primarily with RNA-Seq data to understand tRNA gene levels"
-          - "Contributed to a collaborative project aiming to better characterize bacterial metabolism. Worked primarily with RNA-Seq data to understand tRNA gene levels. Work culminated in an honors thesis project."
 
       - date: Summer 2012 - Spring 2013
         topic: "Virtual Drug Screening --- Freshman Research Initiative"
@@ -66,7 +65,7 @@ sections:
         institution: New York University
         notes:
           - "Led a recitation help section for 10-15 graduate students. Taught introductory statistics, machine learning, and programming concepts and graded assignments."
-      - date: Fall 2016 - Spring 2017
+      - date: Fall 2016, Spring 2017, Fall 2018
         about: Recitation Leader --- Biostatistics
         institution: New York University
         notes:
@@ -95,12 +94,17 @@ sections:
     type: experience
     markdowntype: experience
     items:
+      - date: January 2019
+        about: Single Cell Biology 
+        institution: Keystone Symposium 
+        notes:
+          - "Presented a workshop talk and poster on integration methods for scRNA-seq data."
 
       - date: September 2017
         about: NYU Biology Department Annual Retreat 
         institution: New York University
         notes: 
-          - "Presented a summary of my research on a new method to integrate scRNA-seq data."
+          - "Presented a summary of my research on integration methods for scRNA-seq data."
 
       - date: April 2015
         about: Undergraduate Research Forum
