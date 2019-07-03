@@ -2,10 +2,11 @@
 
 ~< block body >~
 \begin{small}
-  \begin{enumerate}
+  \begin{MyEnumerate}
+
     \itemsep 1em
     ~< for pub in items >~
-      \item{
+      \MyItem{
         ~< if pub.url is defined >~
           ``\href{<< pub.url >>}{<< pub.title >>}.''
         ~< else >~
@@ -29,6 +30,6 @@
         << pub.year >>.
       }
     ~< endfor >~
-  \end{enumerate}
+  \end{MyEnumerate}
 \end{small}
 ~< endblock body >~

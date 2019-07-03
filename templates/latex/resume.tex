@@ -1,5 +1,45 @@
 \documentclass[11pt,letterpaper]{moderncv}
 
+\usepackage{etoolbox}% for toggles
+\usepackage{enumitem}
+
+%  https://tex.stackexchange.com/questions/43002/how-to-preserve-the-same-parskip-in-minipage
+\newlength{\currentparskip}
+
+% https://tex.stackexchange.com/questions/56435/replace-item-with-myitem-to-box-each-list-member-with-an-mdframed
+\newcommand{\MyItem}{\item}
+
+\newtoggle{FirstItem}%
+\toggletrue{FirstItem}
+
+\toggletrue{FirstItem}%
+\newenvironment{MyEnumerate}[1][]{%
+    \renewcommand{\MyItem}{%
+        \iftoggle{FirstItem}{%
+            \global\togglefalse{FirstItem}
+            \setlength{\currentparskip}{\parskip}% save the value
+            %--------- start new minipage
+            \par\addvspace{\baselineskip}\noindent
+            \begin{minipage}{\textwidth}%
+            \setlength{\parskip}{\currentparskip}% restore the value
+            \begin{enumerate}[#1,series=MySeries]%
+        }{%
+            \end{enumerate}%
+            \end{minipage}%
+            %--------- end previous minipage and start new one
+            \par\addvspace{\baselineskip}\noindent
+            \begin{minipage}{\textwidth}%
+            \setlength{\parskip}{\currentparskip}% restore the value
+            \begin{enumerate}[#1,resume*=MySeries]%
+        }%
+        \item\mbox{}%
+    }%
+}{%
+    \end{enumerate}%
+    \end{minipage}% --------- end last minipage
+    \global\toggletrue{FirstItem}%
+}%
+
 \moderncvstyle{banking}
 \moderncvcolor{black}
 
