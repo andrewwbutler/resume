@@ -60,7 +60,7 @@ sections:
     type: experience
     markdowntype: experience
     items:
-      - date: Fall 2017
+      - date: Fall 2017, Fall 2019
         about: Recitation Leader --- Statistical learning from large-scale biological data
         institution: New York University
         notes:
@@ -94,6 +94,12 @@ sections:
     type: experience
     markdowntype: experience
     items:
+      - date: September 2019
+        about: Single Cell Genomics 
+        institution: Stockholm, Sweden
+        notes:
+          - "Presented a poster on recent improvements and developments with respect to my work on integration methods for scRNA-seq data "
+
       - date: January 2019
         about: Single Cell Biology 
         institution: Keystone Symposium 
