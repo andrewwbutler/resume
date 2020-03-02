@@ -12,6 +12,16 @@
       ~< endfor >~
       \end{itemize}
     \end{itemize}
+  ~< elif item.date is defined >~
+    \begin{samepage}
+      \vspace{-0.5em}
+      \begin{itemize}
+        \setlength{\parskip}{0pt} 
+        \setlength{\itemsep}{0pt plus 1pt}
+        \item{ << item.name >> \hfill{ \emph{ << item.date >> }}}
+      \end{itemize}
+      \vspace{-1.25em}
+    \end{samepage}
   ~< else >~
     \cvlistitem{<< item >>}
   ~< endif >~
@@ -20,10 +30,12 @@
 ~< block body >~
   ~< if subsections is defined >~
     ~< for subs in subsections >~
-      \subsection{<< subs.name >>}
+      \textbf{<< subs.name >>}
+        \vspace{0.25em}
         ~< for item in subs.subitems >~
           << listitem(item) >>
         ~< endfor >~
+        \vspace{1em}
     ~< endfor >~
   ~< else >~
     ~< for item in items >~

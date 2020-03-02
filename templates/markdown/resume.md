@@ -1,6 +1,4 @@
-## {{ name.first }} {{ name.last }} ##
-
-[PDF]({{ pdf }}) |
+[Download PDF]({{ pdf }}) |
 Last updated: {{ generated }}
 
 

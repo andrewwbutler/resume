@@ -4,7 +4,9 @@
     {{ item.description | wordwrap(width=76, wrapstring='\n    ') }}
 {% elif item.notes is defined %}  - {{ item.name | wordwrap(width=76, wrapstring='\n    ') }}
 {% for note in item.notes %}    - {{ note | wordwrap(width=74, wrapstring='\n      ') }}
-{% endfor %}{% else %}  - {{ item | wordwrap(width=76, wrapstring='\n    ') }}
+{% endfor %}
+{% elif item.date is defined %} - {{ item.name | wordwrap(width=76, wrapstring='\n    ') }} {{ item.date }}
+{% else %}  - {{ item.name | wordwrap(width=76, wrapstring='\n    ') }}
 {% endif %}{% endmacro %}
 
 {% block body %}

@@ -34,7 +34,7 @@ private: private.yaml $(BUILD_DEPS)
 	$(call build_latex)
 
 viewpdf: $(PDF)
-	gnome-open $(PDF)
+	xdg-open $(PDF)
 
 clean:
 	rm -rf $(BUILD_DIR)

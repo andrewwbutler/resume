@@ -135,18 +135,22 @@ sections:
     subsections:
       - name: Awards
         subitems:
-          - New York Genome Center Outstanding Contribution (PhD student), \textit{2017}
+          - name: New York Genome Center Outstanding Contribution (PhD student)
+            date: "2017"
+
       - name: Graduate Fellowships
         subitems:
-           - NSF Graduate Research Fellowship, \textit{2017}
-           - MacCracken Fellowship, \textit{2015}
-
+           - name: NSF Graduate Research Fellowship
+             date: "2017"
+           - name: MacCracken Fellowship
+             date: "2015"
       - name: Undergraduate Awards and Scholarships
         subitems:
-           - College Scholar, \textit{2013, 2014, 2015}
-           - President's Achievement Scholarship, \textit{2012, 2013, 2014, 2015}
-           - Phi Beta Kappa, \textit{2015}
-           - College of Natural Sciences Undergraduate Research Fellowship, \textit{2012}
-
-
-...
+           - name: College Scholar
+             date: "2013, 2014, 2015"
+           - name: President's Achievement Scholarship
+             date: "2012, 2013, 2014, 2015"
+           - name: Phi Beta Kappa
+             date: "2015"
+           - name: College of Natural Sciences Undergraduate Research Fellowship
+             date: "2012"

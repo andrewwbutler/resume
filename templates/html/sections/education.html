@@ -2,13 +2,16 @@
 
 {% block body %}
   {% for school in items %}
-    <div class="school">
-      <span class="name">{{ school.school }}</span> -
-      <span class="date">{{ school.date }}</span><br>
-      <span class="major">{{ school.major }}</span><br>
-      {% if school.notes is defined %}
-        <span class="notes">{{ school.notes }}</span>
-      {% endif %}
-    </div>
+  <div class="school">
+    <span class="name">{{ school.school }}</span><br>
+     <span class="major">{{ school.major }}</span>
+     <span class="date">{{ school.date }}</span><br>
+     {% if school.notes is defined %}
+       <span class="notes">{{ school.notes }}</span><br>
+     {% endif %}
+     {% if not loop.last %}
+      <br>
+     {% endif %}
+  </div>
   {% endfor %}
 {% endblock body %}

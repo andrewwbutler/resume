@@ -105,7 +105,7 @@ class RenderContext(object):
         yaml_data['body'] = body
         # Grab the timestamp of the last commit
         timestamp = Repo().head.commit.committed_date
-        yaml_data['generated'] = strftime("%B %-d", localtime(timestamp))
+        yaml_data['generated'] = strftime("%B %-d, %-Y", localtime(timestamp))
 
         return self._render_template(
             self._base_template, yaml_data).rstrip() + '\n'

@@ -2,8 +2,9 @@
 
 {% block body %}
 {% for school in items %}
-**{{ school.school }}** - _{{ school.date }}_  
-{{ school.major }}  
+**{{ school.school }}**  
+{{ school.major }}  - _{{ school.date }}_
+
 {% if school.notes is defined %}{{ school.notes }}{% endif %}
 
 

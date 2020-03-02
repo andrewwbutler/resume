@@ -14,6 +14,27 @@
 #
 # TODO: make sure these get processed in time order for resume
 ################################################################################
+- title: "Toward a Common Coordinate Framework for the Human Body"
+  authors:
+    - Jennifer E. Rood
+    - Tim Stuart$^*$
+    - Shila Ghazanfar$^*$
+    - Tommaso Biancalani$^*$
+    - Eyal Fisher
+    - Andrew Butler
+    - Anna Hupalowska
+    - Leslie Gaffney
+    - William Mauck
+    - Gokcen Eraslan
+    - John C.Marioni
+    - Aviv Regev
+    - Rahul Satija
+  key: hubmap2019
+  year: 2019
+  month: December
+  journal: Cell
+  url: https://doi.org/10.1016/j.cell.2019.11.019
+
 - title: "Comprehensive Integration of Single-Cell Data"
   authors:
     - Tim Stuart$^*$

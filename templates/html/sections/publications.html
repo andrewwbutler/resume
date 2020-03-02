@@ -12,11 +12,8 @@
           {% endif %}
         </span>
         <br>
-        <span class="authors">{{ pub.authors }}</span>.
-        <br>
-        <span class="venuetype">{{ pub.journal }}</span> {% if pub.venueshort is defined %}
-        <span class="venueshort">({{ pub.venueshort }})</span>{% endif %}{% if pub.venuelocation is defined %},
-        <span class=venuelocation>{{ pub.venuelocation }}</span>{% endif %}.
+        <span class="authors">{{ pub.authors | replace('$', '') | replace('^', '') | replace('\'', '') | replace('[', '') | replace(']', '') | replace('Andrew Butler', '<b>Andrew Butler</b>')}}</span>.
+        <span class="venuetype">{{ pub.journal }}</span>.
         <span class="date">{{ pub.month }} {{ pub.year }}</span>.
       </li>
     {% endfor %}
