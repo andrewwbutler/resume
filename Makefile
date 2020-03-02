@@ -10,6 +10,7 @@ PDF=$(BUILD_DIR)/resume.pdf
 MD=$(BUILD_DIR)/resume.md
 HTML=$(BUILD_DIR)/resume.html
 TXT=$(BUILD_DIR)/resume.txt
+WEBSITE_DIR=$(HOME)/Projects/website
 
 GENERATE_CMD=./generate.py -b publications.yaml resume.yaml
 
@@ -38,3 +39,7 @@ viewpdf: $(PDF)
 
 clean:
 	rm -rf $(BUILD_DIR)
+
+copy: 
+	cp $(BUILD_DIR)/resume.html $(WEBSITE_DIR)/content/cv.md
+	cp $(BUILD_DIR)/resume.pdf $(WEBSITE_DIR)/static/cv.pdf
