@@ -106,7 +106,8 @@ class RenderContext(object):
         # Grab the timestamp of the last commit
         timestamp = Repo().head.commit.committed_date
         yaml_data['generated'] = strftime("%B %-d, %-Y", localtime(timestamp))
-
+        print(yaml_data['generated'])
+        
         return self._render_template(
             self._base_template, yaml_data).rstrip() + '\n'
 
@@ -148,6 +149,7 @@ MARKDOWN_CONTEXT = RenderContext(
         ('--', '-'),                       # en dash
         (r'``([^\']*)\'\'', r'"\1"'),      # quotes
         (r'\\&', '&'),                     # &
+        ('\$\^\*\$', '*')
     ]
 )
 
@@ -168,6 +170,7 @@ TEXT_CONTEXT = RenderContext(
         ('--', '-'),                   # en dash
         (r'``([^\']*)\'\'', r'"\1"'),  # quotes
         (r'\\&', '&'),                 # &
+        ('\$\^\*\$', '*')
     ]
 )
 
