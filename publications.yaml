@@ -14,6 +14,91 @@
 #
 # TODO: make sure these get processed in time order for resume
 ################################################################################
+- title: "Integrated analysis of multimodal single-cell data"
+  authors:
+    - Yuhan Hao$^*$
+    - Stephanie Hao$^*$
+    - Erica Andersen-Nissen
+    - William M. Mauck
+    - Shiwei Zheng
+    - Andrew Butler
+    - Maddie Jane Lee
+    - Aaron J. Wilk
+    - Charlotte Darby
+    - Michael Zagar
+    - Paul Hoffman
+    - Marlon Stoeckius
+    - Efthymia Papalexi
+    - Eleni P. Mimitou
+    - Jaison Jain
+    - Avi Srivastava
+    - Tim Stuart
+    - Lamar B. Fleming
+    - Bertrand Yeung
+    - Angela J. Rogers
+    - Juliana M. McElrath
+    - Catherine A. Blish
+    - Raphael Gottardo
+    - Peter Smibert
+    - Rahul Satija
+  key: wnna
+  year: 2020
+  month: October
+  journal: bioRxiv
+  url: https://www.biorxiv.org/content/10.1101/2020.10.12.335331v1
+  abstract: >
+    The simultaneous measurement of multiple modalities, known as multimodal analysis, represents 
+    an exciting frontier for single-cell genomics and necessitates new computational methods that 
+    can define cellular states based on multiple data types. Here, we introduce "weighted-nearest 
+    neighbor analysis", an unsupervised framework to learn the relative utility of each data type 
+    in each cell, enabling an integrative analysis of multiple modalities. We apply our procedure 
+    to a CITE-seq dataset of hundreds of thousands of human white blood cells alongside a panel of 
+    228 antibodies to construct a multimodal reference atlas of the circulating immune system. We 
+    demonstrate that integrative analysis substantially improves our ability to resolve cell states
+    and validate the presence of previously unreported lymphoid subpopulations. Moreover, we 
+    demonstrate how to leverage this reference to rapidly map new datasets, and to interpret
+    immune responses to vaccination and COVID-19. Our approach represents a broadly applicable 
+    strategy to analyze single-cell multimodal datasets, including paired measurements of RNA 
+    and chromatin state, and to look beyond the transcriptome towards a unified and multimodal 
+    definition of cellular identity. Availability: Installation instructions, documentation, 
+    tutorials, and CITE-seq datasets are available at http://www.satijalab.org/seurat
+
+
+- title: "Characterizing the molecular regulation of inhibitory immune checkpoints with multi-modal single-cell screens"
+  authors:
+    - Efthymia Papalexi
+    - Eleni Mimitou
+    - Andrew Butler
+    - Samantha Foster
+    - Bernadette Bracken
+    - William Mauck
+    - Hans-Hermann Wessels
+    - Bertrand Yeung
+    - Peter Smibert
+    - Rahul Satija
+
+  key: mixscape
+  year: 2020
+  month: June
+  journal: bioRxiv
+  url: https://www.biorxiv.org/content/10.1101/2020.06.28.175596v1
+  abstract: >
+    The expression of inhibitory immune checkpoint molecules such as PD-L1 is 
+    frequently observed in human cancers and can lead to the suppression of 
+    T cell-mediated immune responses. Here we apply ECCITE-seq, a technology 
+    which combines pooled CRISPR screens with single-cell mRNA and surface protein
+    measurements, to explore the molecular networks that regulate PD-L1 expression. 
+    We also develop a computational framework, mixscape, that substantially improves 
+    the signal-to-noise ratio in single-cell perturbation screens by identifying and 
+    removing confounding sources of variation. Applying these tools, we identify and 
+    validate regulators of PD-L1, and leverage our multi-modal data to identify both 
+    transcriptional and post-transcriptional modes of regulation. In particular, we 
+    discover that the kelch-like protein KEAP1 and the transcriptional activator NRF2, 
+    mediate levels of PD-L1 upregulation after IFNgamma stimulation. Our results identify 
+    a novel mechanism for the regulation of immune checkpoints and present a powerful 
+    analytical framework for the analysis of multi-modal single-cell perturbation screens.
+
+
 - title: "Toward a Common Coordinate Framework for the Human Body"
   authors:
     - Jennifer E. Rood

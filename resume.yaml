@@ -135,6 +135,8 @@ sections:
     subsections:
       - name: Awards
         subitems:
+          - name: Harold M. Weintraub Graduate Student Award
+            date: "2020"
           - name: New York Genome Center Outstanding Contribution (PhD student)
             date: "2017"
 
