@@ -14,6 +14,40 @@
 #
 # TODO: make sure these get processed in time order for resume
 ################################################################################
+- title: "Characterizing the molecular regulation of inhibitory immune checkpoints with multi-modal single-cell screens"
+  authors:
+    - Efthymia Papalexi
+    - Eleni Mimitou
+    - Andrew Butler
+    - Samantha Foster
+    - Bernadette Bracken
+    - William Mauck
+    - Hans-Hermann Wessels
+    - Yuhan Hao
+    - Bertrand Yeung
+    - Peter Smibert
+    - Rahul Satija
+
+  key: mixscape
+  year: 2021
+  month: March
+  journal: Nature Genetics
+  url: https://doi.org/10.1038/s41588-021-00778-2
+  abstract: >
+    The expression of inhibitory immune checkpoint molecules, such as programmed death-ligand 
+    (PD-L)1, is frequently observed in human cancers and can lead to the suppression of T 
+    cell–mediated immune responses. Here, we apply expanded CRISPR-compatible (EC)CITE-seq, a 
+    technology that combines pooled CRISPR screens with single-cell mRNA and surface protein 
+    measurements, to explore the molecular networks that regulate PD-L1 expression. We also develop
+    a computational framework, mixscape, that substantially improves the signal-to-noise ratio in 
+    single-cell perturbation screens by identifying and removing confounding sources of variation. 
+    Applying these tools, we identify and validate regulators of PD-L1 and leverage our multimodal 
+    data to identify both transcriptional and post-transcriptional modes of regulation. 
+    Specifically, we discover that the Kelch-like protein KEAP1 and the transcriptional activator 
+    NRF2 mediate the upregulation of PD-L1 after interferon (IFN)-γ stimulation. Our results 
+    identify a new mechanism for the regulation of immune checkpoints and present a powerful 
+    analytical framework for the analysis of multimodal single-cell perturbation screens.
+
 - title: "Integrated analysis of multimodal single-cell data"
   authors:
     - Yuhan Hao$^*$
@@ -62,42 +96,6 @@
     and chromatin state, and to look beyond the transcriptome towards a unified and multimodal 
     definition of cellular identity. Availability: Installation instructions, documentation, 
     tutorials, and CITE-seq datasets are available at http://www.satijalab.org/seurat
-
-
-- title: "Characterizing the molecular regulation of inhibitory immune checkpoints with multi-modal single-cell screens"
-  authors:
-    - Efthymia Papalexi
-    - Eleni Mimitou
-    - Andrew Butler
-    - Samantha Foster
-    - Bernadette Bracken
-    - William Mauck
-    - Hans-Hermann Wessels
-    - Bertrand Yeung
-    - Peter Smibert
-    - Rahul Satija
-
-  key: mixscape
-  year: 2020
-  month: June
-  journal: bioRxiv
-  url: https://www.biorxiv.org/content/10.1101/2020.06.28.175596v1
-  abstract: >
-    The expression of inhibitory immune checkpoint molecules such as PD-L1 is 
-    frequently observed in human cancers and can lead to the suppression of 
-    T cell-mediated immune responses. Here we apply ECCITE-seq, a technology 
-    which combines pooled CRISPR screens with single-cell mRNA and surface protein
-    measurements, to explore the molecular networks that regulate PD-L1 expression. 
-    We also develop a computational framework, mixscape, that substantially improves 
-    the signal-to-noise ratio in single-cell perturbation screens by identifying and 
-    removing confounding sources of variation. Applying these tools, we identify and 
-    validate regulators of PD-L1, and leverage our multi-modal data to identify both 
-    transcriptional and post-transcriptional modes of regulation. In particular, we 
-    discover that the kelch-like protein KEAP1 and the transcriptional activator NRF2, 
-    mediate levels of PD-L1 upregulation after IFNgamma stimulation. Our results identify 
-    a novel mechanism for the regulation of immune checkpoints and present a powerful 
-    analytical framework for the analysis of multi-modal single-cell perturbation screens.
-
 
 - title: "Toward a Common Coordinate Framework for the Human Body"
   authors:
