@@ -14,6 +14,28 @@
 #
 # TODO: make sure these get processed in time order for resume
 ################################################################################
+- title: "geneBasis: an iterative approach for unsupervised selection of targeted gene panels from scRNA-seq"
+  authors:
+    - Alsu Missarova
+    - Jaison Jain
+    - Andrew Butler
+    - Shila Ghazanfar
+    - Tim Stuart
+    - Maigan Brusko
+    - Clive Wasserfall
+    - Harry Nick
+    - Todd Brusko
+    - Mark Atkinson
+    - Rahul Satija
+    - John Marioni
+  key: genebasis
+  year: 2021
+  month: December
+  journal: Genome Biology
+  url: https://doi.org/10.1186/s13059-021-02548-z
+  abstract: >
+      scRNA-seq datasets are increasingly used to identify gene panels that can be probed using alternative technologies, such as spatial transcriptomics, where choosing the best subset of genes is vital. Existing methods are limited by a reliance on pre-existing cell type labels or by difficulties in identifying markers of rare cells. We introduce an iterative approach, geneBasis, for selecting an optimal gene panel, where each newly added gene captures the maximum distance between the true manifold and the manifold constructed using the currently selected gene panel. Our approach outperforms existing strategies and can resolve cell types and subtle cell state differences.
+
 - title: "Characterizing the molecular regulation of inhibitory immune checkpoints with multi-modal single-cell screens"
   authors:
     - Efthymia Papalexi
@@ -76,9 +98,9 @@
     - Peter Smibert
     - Rahul Satija
   key: wnna
-  year: 2020
+  year: 2021
   month: October
-  journal: bioRxiv
+  journal: Cell
   url: https://www.biorxiv.org/content/10.1101/2020.10.12.335331v1
   abstract: >
     The simultaneous measurement of multiple modalities, known as multimodal analysis, represents 

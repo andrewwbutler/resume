@@ -13,14 +13,13 @@ linkedin: awbutler
 pdf: /cv.pdf
 source: https://github.com/andrewwbutler/resume
 
-
 sections:
   - name: Education
     type: education
     items:
-      - date: August 2015--Present
+      - date: August 2015--May 2021
         school: "New York University"
-        major: "Ph.D. Candidate Biology"
+        major: "Ph.D. Biology"
         notes: "Advisor: Rahul Satija"
 
       - date: August 2011--May 2015
@@ -33,11 +32,17 @@ sections:
     type: research
     
     items:
-      - date: May 2016 - Present  
-        topic: "Single Cell Genomics"
+      - date: September 2021 - Current
+        topic: "Single-cell virology"
+        about: "Advisor: Jesse Bloom"
+        notes:
+          - "Conducting research applying and developing single-cell genomic methodologies to address questions regarding heterogeneity in viral infections."
+
+      - date: May 2016 - August 2021  
+        topic: "Single-cell genomics"
         about: "Advisor: Rahul Satija"
         notes:
-          - "Currently conducting research on methods development for single-cell RNA-seq analsysis. Topics of interest include cell type identification through supervised and unsupervised analyses and methods for data integration. Also contributing as one of the lead developers to Seurat, the open source R package developed and maintained by the Satija lab."
+          - "Conducted research on methods development for single-cell RNA-seq analsysis. Topics of interest included cell type identification through supervised and unsupervised analyses and methods for data integration. Also contributed as one of the lead developers to Seurat, the open source R package developed and maintained by the Satija lab."
 
       - date: Summer 2013 - Spring 2015
         topic: "Computational Biology"
