@@ -1,7 +1,6 @@
 About
 -----
-This repo contains the source I use to automatically generate [my resume]
-(http://andrewwbutler.com/assets/resume.pdf) as a webpage and PDF from YAML input.
+This repo contains the source I use to automatically generate [my resume](http://andrewwbutler.com/assets/resume.pdf) as a webpage and PDF from YAML input.
 
 It was forked from [emichael/resume](https://github.com/emichael/resume) and has been modified to fit my use case.
 

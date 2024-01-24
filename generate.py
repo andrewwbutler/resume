@@ -231,12 +231,12 @@ def main():
     yaml_data = {}
     for yaml_file in args.yamls:
         with open(yaml_file) as f:
-            yaml_data.update(yaml.load(f))
+            yaml_data.update(yaml.load(f, Loader=yaml.FullLoader))
 
     # Sub into the publications section as its items, if they don't exist
     if args.publications:
         with open(args.publications) as f:
-            pubs = yaml.load(f)
+            pubs = yaml.load(f, Loader=yaml.FullLoader)
 
         for s in yaml_data['sections']:
             if 'type' in s and s['type'] == 'publications' and 'items' not in s:

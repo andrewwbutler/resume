@@ -13,3 +13,4 @@ build/
 
 # Personal details that shouldn't do into the repo
 *.hidden.yaml
+venv/
